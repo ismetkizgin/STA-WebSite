@@ -1,0 +1,78 @@
+<form>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-xs-12">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ 'Personal Information' | translate }}</h3>
+                </div>
+                <div class="card-body pad">
+                    <div class="form-group">
+                        <label>{{ 'Identity Number' | translate }}</label>
+                        <input type="text" class="form-control" placeholder="{{ 'Enter Identity Number' | translate }}">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ 'First Name' | translate }}</label>
+                        <input type="text" class="form-control" placeholder="{{ 'Enter First Name' | translate }}">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ 'Last Name' | translate }}</label>
+                        <input type="text" class="form-control" placeholder="{{ 'Enter Last Name' | translate }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-xs-12">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ 'Contact information' | translate }}</h3>
+                </div>
+                <div class="card-body pad">
+                    <div class="form-group">
+                        <label>{{ 'Phone' | translate }}</label>
+                        <input type="text" class="form-control" placeholder="{{ 'Enter Phone' | translate }}">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ 'Email Address' | translate }}</label>
+                        <input type="email" class="form-control" placeholder="{{ 'Enter Email' | translate }}">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ 'Institution Name' | translate }}</label>
+                        <input type="text" class="form-control" placeholder="{{ 'Enter Institution Name' | translate }}"
+                            disabled=true>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ 'Safety Information' | translate }}</h3>
+                </div>
+                <div class="card-body pad">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="form-group">
+                                <label>{{ 'Password' | translate }}</label>
+                                <input type="text" class="form-control"
+                                    placeholder="{{ 'Enter Password' | translate }}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="form-group">
+                                <label>{{ 'Password Again' | translate }}</label>
+                                <input type="text" class="form-control"
+                                    placeholder="{{ 'Enter Password Again' | translate }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-info form-large-button">Submit</button>
+        </div>
+    </div>
+</form>
