@@ -4,6 +4,7 @@ import { LanguageService } from '../../../utils';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { LoginModel } from './login.model';
 
 @Component({
   selector: 'app-login',
@@ -17,10 +18,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService
   ) {}
-  model: any = {
-    UserEmail: '',
-    UserPassword: '',
-  };
+  model: LoginModel = new LoginModel();
 
   ngOnInit(): void {}
 
