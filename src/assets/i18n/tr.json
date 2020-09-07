@@ -1,15 +1,44 @@
 {
-	"Forgot password ?": "Parolanızı mı unuttunuz?",
-	"Login": "Giriş Yap",
-	"Password": "Şifre",
-	"Please enter correct user information !": "Lütfen kullanıcı bilgilerini doğru giriniz !",
-	"Please fill in the required fields": "Lütfen gerekli alanları doldurun.",
-	"Server error occurred, please try again later If the error persists, we ask you to report this to the authorities": "Sunucu hatası oluştu, lütfen daha sonra tekrar deneyin. Hata devam ederse, bunu yetkililere bildirmenizi rica ederiz.",
-	"T": {
-		"R": {
-			" Identification Number": "T.C Kimlik Numarası"
-		}
-	},
-	"There is no such user!": "Bölye bir kullanıcı bulunmamaktadır !",
-	"home": "Anasayfa"
+  "Contact information": "İletişim Bilgileri",
+  "Email Address": "E-mail Adresi",
+  "Enter Email Address": "E-mail Adresini Girin",
+  "Enter First Name": "Adı Girin",
+  "Enter Institution Name": "Kurum Adını Girin",
+  "Enter Last Name": "Soy adını Girin",
+  "Enter Password": "Şifre Girin",
+  "Enter Password Again": "Şifreyi Tekrar Girin",
+  "Enter Phone Number": "Telefon Numarasını Girin",
+  "Enter T": {
+    "R": {
+      " Identification Number": "T.C. Kimlik Numarası Girin"
+    }
+  },
+  "First Name": "Ad",
+  "Forgot password ?": "Parolanızı mı unuttunuz?",
+  "Institution Name": "Kurum Adı",
+  "Last Name": "Soyad",
+  "Login": "Giriş Yap",
+  "Password": "Şifre",
+  "Password Again": "Şifre Tekrar",
+  "Personal Informations": "Kişisel Bilgiler",
+  "Phone Number": "Telefon Numarası",
+  "Please enter correct user information !": "Lütfen kullanıcı bilgilerini doğru giriniz !",
+  "Please fill in the required fields": "Lütfen gerekli alanları doldurun.",
+  "Safety Informations": "Güvenlik Bilgileri",
+  "Server error occurred, please try again later If the error persists, we ask you to report this to the authorities": "Sunucu hatası oluştu, lütfen daha sonra tekrar deneyin. Hata devam ederse, bunu yetkililere bildirmenizi rica ederiz.",
+  "T": {
+    "R": {
+      " Identification Number": "T.C Kimlik Numarası"
+    }
+  },
+  "There is no such user!": "Bölye bir kullanıcı bulunmamaktadır !",
+  "home": "Anasayfa",
+  "null": {
+    "T": {
+      "R": {
+        " Identification Number field must be filled": "T.R. Kimlik Numarası alanı doldurulmalıdır."
+      }
+    }
+  },
+  "Save": "Kaydet"
 }
