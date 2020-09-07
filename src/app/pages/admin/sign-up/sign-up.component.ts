@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { SignUpModel } from './sign-up.model';
+import { AuthService } from '../../../utils/services';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,8 @@ import { SignUpModel } from './sign-up.model';
 export class SignUpComponent implements OnInit {
   constructor(
     private _snackBar: MatSnackBar,
-    private _translateService: TranslateService
+    private _translateService: TranslateService,
+    private _authService: AuthService
   ) {}
 
   _model: SignUpModel = new SignUpModel();
@@ -48,19 +50,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onAutomaticPasswordGeneration(): void {
-    var lowerCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    var upperCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    var numbers = ['0','1','2','3','4','5','6','7','8','9'];
-    var finalCharacters = lowerCharacters;
-    finalCharacters = finalCharacters.concat(upperCharacters);
-    finalCharacters = finalCharacters.concat(numbers);
-    var passwordArray = [];
-    for (var i = 1; i < 8; i++) {
-      passwordArray.push(
-        finalCharacters[Math.floor(Math.random() * finalCharacters.length)]
-      );
-    }
-    this._model.UserPassword = passwordArray.join("");
+    this._model.UserPassword = this._authService.creatingPassword(8);
     this._passwordShowHide = true;
   }
 
