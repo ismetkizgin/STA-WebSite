@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './utils/guards';
 import {
   ClientLayoutComponent,
   AdminLayoutComponent,
 } from './components/layouts';
-import { HomepageComponent, DashboardComponent, LoginComponent } from './pages';
-import { AuthGuard } from './utils/guards';
+import {
+  HomepageComponent,
+  DashboardComponent,
+  LoginComponent,
+  SignUpComponent,
+} from './pages';
 
 const routes: Routes = [
   {
@@ -17,7 +22,10 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
-    children: [{ path: '', component: DashboardComponent }],
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'sign-up', component: SignUpComponent },
+    ],
   },
   { path: 'login', component: LoginComponent },
 ];

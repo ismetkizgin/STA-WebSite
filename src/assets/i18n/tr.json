@@ -1,15 +1,43 @@
 {
+	"Automatic password generation": "Otomatik Şifre Oluştur",
+	"Contact information": "İletişim Bilgileri",
+	"Email Address": "E-mail Adresi",
+	"Email adress field must be filled": "E-mail adresi alanı doldurulmalıdır.",
+	"Enter Email Address": "E-mail Adresini Girin",
+	"Enter First Name": "Adı Girin",
+	"Enter Institution Name": "Kurum Adını Girin",
+	"Enter Last Name": "Soy adını Girin",
+	"Enter Password": "Şifre Girin",
+	"Enter Phone Number": "Telefon Numarasını Girin",
+	"Enter T": {
+		"R": {
+			" Identification Number": "T.C. Kimlik Numarası Girin"
+		}
+	},
+	"First Name": "Ad",
 	"Forgot password ?": "Parolanızı mı unuttunuz?",
+	"Institution Name": "Kurum Adı",
+	"Last Name": "Soyad",
 	"Login": "Giriş Yap",
 	"Password": "Şifre",
+	"Password cannot be shorter than 6 characters": "Parola 6 karakterden kısa olamaz.",
+	"Personal Informations": "Kişisel Bilgiler",
+	"Phone Number": "Telefon Numarası",
+	"Phone number field must be filled": "Telefon numarası alanı doldurulmalıdır.",
 	"Please enter correct user information !": "Lütfen kullanıcı bilgilerini doğru giriniz !",
 	"Please fill in the required fields": "Lütfen gerekli alanları doldurun.",
+	"Safety Informations": "Güvenlik Bilgileri",
+	"Save": "Kaydet",
 	"Server error occurred, please try again later If the error persists, we ask you to report this to the authorities": "Sunucu hatası oluştu, lütfen daha sonra tekrar deneyin. Hata devam ederse, bunu yetkililere bildirmenizi rica ederiz.",
 	"T": {
 		"R": {
-			" Identification Number": "T.C Kimlik Numarası"
+			" Identification Number": "T.C Kimlik Numarası",
+			" Identification Number field must be filled": "T.C. Kimlik Numarası alanı doldurulmalıdır."
 		}
 	},
 	"There is no such user!": "Bölye bir kullanıcı bulunmamaktadır !",
+	"User first name field must be filled": "Kullanıcı adı alanı doldurulmalıdır.",
+	"User last name field must be filled": "Kullanıcı soyadı alanı doldurulmalıdır.",
+	"User registration is complete": "Kullanıcı kaydı tamamlandı.",
 	"home": "Anasayfa"
 }
