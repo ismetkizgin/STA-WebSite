@@ -4,7 +4,7 @@ import {
   ClientLayoutComponent,
   AdminLayoutComponent,
 } from './components/layouts';
-import { HomepageComponent, DashboardComponent, LoginComponent } from './pages';
+import { HomepageComponent, DashboardComponent, LoginComponent,InstituonalListingComponent } from './pages';
 import { AuthGuard } from './utils/guards';
 
 const routes: Routes = [
@@ -17,7 +17,8 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
-    children: [{ path: '', component: DashboardComponent }],
+    children: [{ path: '', component: DashboardComponent },
+    { path: 'instituonal-listing', component: InstituonalListingComponent }],
   },
   { path: 'login', component: LoginComponent },
 ];
