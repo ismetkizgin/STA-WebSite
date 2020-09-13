@@ -6,13 +6,14 @@
     "start": "npm run build & ng serve --configuration=production --host 0.0.0.0",
     "start:stage": "ng serve --configuration=stage --host 0.0.0.0",
     "start:dev": "ng serve",
+    "start:heroku": "node serve.js -p $PORT",
+    "heroku-postbuild": "ng build --configuration=stage",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/*.json --clean --sort --format namespaced-json --marker _",
-    "start:heroku": "node serve.js -p $PORT",
-    "heroku-postbuild": "ng build --configuration=stage"
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
