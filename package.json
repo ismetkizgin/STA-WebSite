@@ -10,7 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/*.json --clean --sort --format namespaced-json --marker _"
+    "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/*.json --clean --sort --format namespaced-json --marker _",
+    "start:heroku": "node serve.js -p $PORT",
+    "heroku-postbuild": "ng build --configuration=stage"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +30,8 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "admin-lte": "^3.0.5",
     "alertifyjs": "^1.13.1",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
