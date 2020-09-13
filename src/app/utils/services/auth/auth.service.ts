@@ -40,7 +40,9 @@ export class AuthService {
           break;
         default:
           this._translateService
-            .get('Server error occurred, please try again later If the error persists, we ask you to report this to the authorities')
+            .get(
+              'Server error occurred, please try again later If the error persists, we ask you to report this to the authorities'
+            )
             .subscribe((value) => (errorMessage = value));
           break;
       }
@@ -51,12 +53,12 @@ export class AuthService {
     }
   }
 
-  async tokenControl() {
+  async tokenDecode() {
     try {
       if (localStorage.getItem('token') != null) {
         const response: any = await this._apiFetchService.requestAsync(
           'GET',
-          'token-ping',
+          'token-decode',
           null,
           true
         );
@@ -66,5 +68,21 @@ export class AuthService {
     } catch (error) {
       return false;
     }
+  }
+
+  creatingPassword(passwordLength) {
+    var lowerCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var upperCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    var numbers = ['0','1','2','3','4','5','6','7','8','9'];
+    var finalCharacters = lowerCharacters;
+    finalCharacters = finalCharacters.concat(upperCharacters);
+    finalCharacters = finalCharacters.concat(numbers);
+    var passwordArray = [];
+    for (var i = 1; i < passwordLength; i++) {
+      passwordArray.push(
+        finalCharacters[Math.floor(Math.random() * finalCharacters.length)]
+      );
+    }
+    return passwordArray.join('');
   }
 }

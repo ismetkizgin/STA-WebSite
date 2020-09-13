@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
   constructor(private _authService: AuthService, private _router: Router) {}
 
   async canActivate() {
-    const response = await this._authService.tokenControl();
+    const response = await this._authService.tokenDecode();
     if(response)
       return true;
     
