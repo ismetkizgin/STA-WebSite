@@ -9,8 +9,8 @@ import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { DashboardComponent, LoginComponent, SignUpComponent } from '../../../../pages/admin';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent, LoginComponent,InstituonalListingComponent, SignUpComponent } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -24,8 +24,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
-    SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    InstituonalListingComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,

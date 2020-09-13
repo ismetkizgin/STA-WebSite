@@ -9,7 +9,8 @@ import {
   HomepageComponent,
   DashboardComponent,
   LoginComponent,
-  SignUpComponent,
+  InstituonalListingComponent,
+  SignUpComponent
 } from './pages';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'sign-up', component: SignUpComponent },
+      { path: 'instituonal-listing', component: InstituonalListingComponent },
     ],
   },
   { path: 'login', component: LoginComponent },
