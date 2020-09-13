@@ -53,12 +53,12 @@ export class AuthService {
     }
   }
 
-  async tokenControl() {
+  async tokenDecode() {
     try {
       if (localStorage.getItem('token') != null) {
         const response: any = await this._apiFetchService.requestAsync(
           'GET',
-          'token-ping',
+          'token-decode',
           null,
           true
         );
