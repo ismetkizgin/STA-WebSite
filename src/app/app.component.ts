@@ -8,14 +8,16 @@ import { LanguageService } from './utils';
 })
 export class AppComponent {
   constructor(
-    private _translate: TranslateService,
+    private _translateService: TranslateService,
     private _languageService: LanguageService
   ) {
-    _translate.addLangs(['tr', 'en']);
-    _translate.setDefaultLang('tr');
+    this._translateService.addLangs(['tr', 'en']);
+    this._translateService.setDefaultLang('tr');
 
-    if (_languageService.getLanguage()) {
-      _translate.use(localStorage.getItem('language'));
+    if (this._languageService.getLanguage()) {
+      this._translateService.use(localStorage.getItem('language'));
+    } else {
+      this._translateService.use(this._translateService.getBrowserLang());
     }
   }
 }
