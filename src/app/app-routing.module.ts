@@ -10,7 +10,7 @@ import {
   DashboardComponent,
   LoginComponent,
   InstituonalListingComponent,
-  SignUpComponent
+  SignUpComponent,
 } from './pages';
 
 const routes: Routes = [
@@ -24,9 +24,21 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: DashboardComponent },
-      { path: 'sign-up', component: SignUpComponent },
-      { path: 'instituonal-listing', component: InstituonalListingComponent },
+      {
+        path: '',
+        component: DashboardComponent,
+        data: { title: 'Dashboard', icon: 'fa fa-3x fa-home' },
+      },
+      {
+        path: 'sign-up',
+        component: SignUpComponent,
+        data: { title: 'Sign Up', icon: 'fa fa-3x fa-user' },
+      },
+      {
+        path: 'institution-listing',
+        component: InstituonalListingComponent,
+        data: { title: 'Institution List', icon: 'fa fa-3x fa-university' },
+      },
     ],
   },
   { path: 'login', component: LoginComponent },
