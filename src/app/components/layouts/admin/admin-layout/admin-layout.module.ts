@@ -11,6 +11,10 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent, LoginComponent,InstituonalListingComponent, SignUpComponent } from '../../../../pages/admin';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -32,6 +36,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     RouterModule,
     FormsModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
