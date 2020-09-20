@@ -1,45 +1,66 @@
-<div class="container-fluid">
-    <div class="row">
-        
-      <div class="col-md-12">
-        <div class="card-header bg-blue" style="height: 1.5px!important; padding: 0!important;"></div>
-        <div class="card card-primary">
-          <form role="form" id="quickForm" novalidate="novalidate">
-            <div class="card-body">
-                <div class="form-group">
-                    <label>{{'Institution Name'|translate}}</label>
-                    <input type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>{{'Phone Number'|translate}}</label>
-  
-                    <div class="input-group">
-                      <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" im-insert="true">
-                    </div>
-                  </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">{{'Email address'| translate}}</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                <label>{{'City'| translate}}</label>
-                <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
-                  <option data-select2-id="19" *ngFor="let item of data">{{item.City}}</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>{{'District'| translate}}</label>
-                <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
-                  <option data-select2-id="19" *ngFor="let item of data">{{item.District}}</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="card-footer">
-              <button type="submit" class="btn btn-primary w-100">{{'Save'| translate}}</button>
-            </div>
-          </form>
+<form #institutionRegistrationForm='ngForm' (ngSubmit)="onSave(institutionRegistrationForm)">
+  <div class="card card-outline card-info">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'Institution Name'|translate}}</mat-label>
+              <input matInput type="text" placeholder="{{'Enter Institution Name'|translate}}" name="InstitutionName"
+                #InstitutionName="ngModel" [(ngModel)]="_model.InstitutionName" required>
+              <mat-error *ngIf="InstitutionName.invalid&&InstitutionName.touched">
+                {{ 'Institution Name field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Phone Number' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}" name="InstitutionPhone"
+                #InstitutionPhone="ngModel" [(ngModel)]="_model.InstitutionPhone" required>
+              <mat-error *ngIf="InstitutionPhone.invalid&&InstitutionPhone.touched">
+                {{ 'Phone number field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Email Address' | translate }}</mat-label>
+              <input matInput type="email" placeholder="{{ 'Enter Email Address' | translate }}" name="InstitutionEmail"
+                #InstitutionEmail="ngModel" [(ngModel)]="_model.InstitutionEmail" required>
+              <mat-error *ngIf="InstitutionEmail.invalid&&InstitutionEmail.touched">
+                {{ 'Email adress field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
         </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'City'| translate}}</mat-label>
+              <select matNativeControl name="InstitutionCity" #InstitutionCity="ngModel"
+                [(ngModel)]="_model.InstitutionCity" (change)='onCitySelected($event)' required>
+                <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
+              </select>
+              <mat-error *ngIf="InstitutionCity.invalid">
+                {{ 'Email adress field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
         </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'Districts'| translate}}</mat-label>
+              <select matNativeControl name="InstitutionDistrict" #InstitutionDistrict="ngModel"
+                [(ngModel)]="_model.InstitutionDistrict" required>
+                <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+              </select>
+              <mat-error *ngIf="InstitutionDistrict.invalid&&InstitutionDistrict.touched">
+                {{ 'Email adress field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary w-100">{{'Save'| translate}}</button>
     </div>
   </div>
+</form>

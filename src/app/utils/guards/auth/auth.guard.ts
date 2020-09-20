@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
 
   async canActivate() {
     const response = await this._authService.tokenDecode();
-    if(response)
+    if(!response)
       return true;
     
       this._router.navigateByUrl('/login')
