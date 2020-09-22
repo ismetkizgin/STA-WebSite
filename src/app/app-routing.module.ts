@@ -10,7 +10,8 @@ import {
   DashboardComponent,
   LoginComponent,
   InstituonalListingComponent,
-  SignUpComponent,
+  SignUpComponent, 
+  UserListComponent
 } from './pages';
 
 const routes: Routes = [
@@ -38,6 +39,11 @@ const routes: Routes = [
         path: 'institution-listing',
         component: InstituonalListingComponent,
         data: { title: 'Institution List', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'users',
+        component: UserListComponent,
+        data: { title: 'User List', icon: 'fas fa-3x fa-users' },
       },
     ],
   },

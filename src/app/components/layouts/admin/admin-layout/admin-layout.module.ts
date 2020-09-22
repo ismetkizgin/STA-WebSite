@@ -10,7 +10,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent, LoginComponent,InstituonalListingComponent, SignUpComponent } from '../../../../pages/admin';
+import { DashboardComponent, LoginComponent,InstituonalListingComponent, SignUpComponent,UserListComponent } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -26,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminSidebarComponent,
     LoginComponent,
     InstituonalListingComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,
