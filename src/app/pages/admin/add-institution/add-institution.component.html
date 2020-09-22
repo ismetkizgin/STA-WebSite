@@ -36,31 +36,31 @@
             <mat-form-field appearance="outline">
               <mat-label>{{'City'| translate}}</mat-label>
               <select matNativeControl name="InstitutionCity" #InstitutionCity="ngModel"
-                [(ngModel)]="_model.InstitutionCity" (change)='onCitySelected($event)' required>
+                [(ngModel)]="_model.InstitutionCity" (change)='onCitySelected(InstitutionCity.value)' required>
                 <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
               </select>
               <mat-error *ngIf="InstitutionCity.invalid">
-                {{ 'Email adress field must be filled' | translate }}</mat-error>
+                {{ 'Select the city where the institution is located' | translate }}</mat-error>
             </mat-form-field>
           </div>
         </div>
         <div class="col-md-6 col-xs-12">
           <div class="form-group">
             <mat-form-field appearance="outline">
-              <mat-label>{{'Districts'| translate}}</mat-label>
-              <select matNativeControl name="InstitutionDistrict" #InstitutionDistrict="ngModel"
+              <mat-label>{{'District'| translate}}</mat-label>
+              <select matNativeControl name="InstitutionDistrict" #InstitutionDistrict="ngModel" ng-model="districtSelect"
                 [(ngModel)]="_model.InstitutionDistrict" required>
                 <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
               </select>
               <mat-error *ngIf="InstitutionDistrict.invalid&&InstitutionDistrict.touched">
-                {{ 'Email adress field must be filled' | translate }}</mat-error>
+                {{ 'Select the district where the institution is located' | translate }}</mat-error>
             </mat-form-field>
           </div>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <button type="submit" class="btn btn-primary w-100">{{'Save'| translate}}</button>
+      <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
     </div>
   </div>
 </form>

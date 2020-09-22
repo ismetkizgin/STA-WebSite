@@ -41,7 +41,12 @@ const routes: Routes = [
         data: { title: 'Institution List', icon: 'fa fa-3x fa-university' },
       },
       {
-        path: 'add-institution',
+        path: 'institution-transactions',
+        component: AddInstitutionComponent,
+        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'institution-transactions/:InstitutionID',
         component: AddInstitutionComponent,
         data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
       },
