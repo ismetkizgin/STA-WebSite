@@ -1,0 +1,66 @@
+<form #institutionRegistrationForm='ngForm' (ngSubmit)="onSave(institutionRegistrationForm)">
+  <div class="card card-outline card-info">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'Institution Name'|translate}}</mat-label>
+              <input matInput type="text" placeholder="{{'Enter Institution Name'|translate}}" name="InstitutionName"
+                #InstitutionName="ngModel" [(ngModel)]="_model.InstitutionName" required>
+              <mat-error *ngIf="InstitutionName.invalid&&InstitutionName.touched">
+                {{ 'Institution Name field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Phone Number' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}" name="InstitutionPhone"
+                #InstitutionPhone="ngModel" [(ngModel)]="_model.InstitutionPhone" required>
+              <mat-error *ngIf="InstitutionPhone.invalid&&InstitutionPhone.touched">
+                {{ 'Phone number field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Email Address' | translate }}</mat-label>
+              <input matInput type="email" placeholder="{{ 'Enter Email Address' | translate }}" name="InstitutionEmail"
+                #InstitutionEmail="ngModel" [(ngModel)]="_model.InstitutionEmail" required>
+              <mat-error *ngIf="InstitutionEmail.invalid&&InstitutionEmail.touched">
+                {{ 'Email adress field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'City'| translate}}</mat-label>
+              <select matNativeControl name="InstitutionCity" #InstitutionCity="ngModel"
+                [(ngModel)]="_model.InstitutionCity" (change)='onCitySelected(InstitutionCity.value)' required>
+                <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
+              </select>
+              <mat-error *ngIf="InstitutionCity.invalid">
+                {{ 'Select the city where the institution is located' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'District'| translate}}</mat-label>
+              <select matNativeControl name="InstitutionDistrict" #InstitutionDistrict="ngModel" ng-model="districtSelect"
+                [(ngModel)]="_model.InstitutionDistrict" required>
+                <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+              </select>
+              <mat-error *ngIf="InstitutionDistrict.invalid&&InstitutionDistrict.touched">
+                {{ 'Select the district where the institution is located' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
+    </div>
+  </div>
+</form>
