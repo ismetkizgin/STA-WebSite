@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-instituonal-listing',
-  templateUrl: './instituonal-listing.component.html',
-  styleUrls: ['./instituonal-listing.component.scss'],
+  selector: 'app-institution-list',
+  templateUrl: './institution-list.component.html',
+  styleUrls: ['./institution-list.component.scss'],
 })
-export class InstituonalListingComponent implements OnInit {
+export class InstitutionListComponent implements OnInit {
   constructor() {}
   data = [
     {
@@ -57,6 +57,5 @@ export class InstituonalListingComponent implements OnInit {
       InstitutionPhone: '+905555555555',
     },
   ];
-
   ngOnInit(): void {}
 }
