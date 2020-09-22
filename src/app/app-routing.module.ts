@@ -11,6 +11,7 @@ import {
   LoginComponent,
   InstituonalListingComponent,
   SignUpComponent,
+  AddInstitutionComponent,
 } from './pages';
 
 const routes: Routes = [
@@ -38,6 +39,16 @@ const routes: Routes = [
         path: 'institution-listing',
         component: InstituonalListingComponent,
         data: { title: 'Institution List', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'institution-transactions',
+        component: AddInstitutionComponent,
+        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'institution-transactions/:InstitutionID',
+        component: AddInstitutionComponent,
+        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
       },
     ],
   },
