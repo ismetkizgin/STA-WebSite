@@ -33,4 +33,22 @@ export class InstitutionService {
       true
     );
   }
+
+  async deleteAsync(values) {
+    return await this._apiFetchService.requestAsync(
+      'DELETE',
+      'institution',
+      values,
+      true
+    );
+  }
+
+  async listAsync() {
+    return await this._apiFetchService.requestAsync(
+      'GET',
+      'institution',
+      null,
+      true
+    );
+  }
 }

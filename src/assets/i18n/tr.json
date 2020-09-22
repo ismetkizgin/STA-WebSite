@@ -16,17 +16,14 @@
 	"Enter Last Name": "Soy adını Girin",
 	"Enter Password": "Şifre Girin",
 	"Enter Phone Number": "Telefon Numarasını Girin",
-	"Enter T": {
-		"R": {
-			" Identification Number": "T.C. Kimlik Numarası Girin"
-		}
-	},
+	"Enter T.R. Identification Number": "T.C. Kimlik Numarası Girin",
 	"Examine": "İncele",
 	"First Name": "Ad",
 	"Forgot password ?": "Parolanızı mı unuttunuz?",
 	"Institution Name": "Kurum Adı",
 	"Institution Name field must be filled": "Kurum Adı alanı doldurulmalıdır.",
 	"Institution No": "Kurum Numarası",
+	"Institution information was successfully deleted": "Kurum bilgileri başarıyla silindi.",
 	"Last Name": "Soyad",
 	"Login": "Giriş Yap",
 	"Password": "Şifre",
@@ -44,12 +41,8 @@
 	"Select the district where the institution is located": "Kurumun bulunduğu ilçeyi seçin.",
 	"Server error occurred, please try again later If the error persists, we ask you to report this to the authorities": "Sunucu hatası oluştu, lütfen daha sonra tekrar deneyin. Hata devam ederse, bunu yetkililere bildirmenizi rica ederiz.",
 	"Such an institution is already registered in the system !": "Böyle bir kurum sisteme zaten kayıtlı !",
-	"T": {
-		"R": {
-			" Identification Number": "T.C Kimlik Numarası",
-			" Identification Number field must be filled": "T.C. Kimlik Numarası alanı doldurulmalıdır."
-		}
-	},
+	"T.R. Identification Number": "T.C Kimlik Numarası",
+	"T.R. Identification Number field must be filled": "T.C. Kimlik Numarası alanı doldurulmalıdır.",
 	"There is no such user!": "Bölye bir kullanıcı bulunmamaktadır !",
 	"Unauthorized transaction !": "Yetkisiz işlem !",
 	"User first name field must be filled": "Kullanıcı adı alanı doldurulmalıdır.",
