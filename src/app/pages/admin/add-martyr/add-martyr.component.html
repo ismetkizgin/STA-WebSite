@@ -25,6 +25,32 @@
         <div class="col-md-6 col-xs-12">
           <div class="form-group">
             <mat-form-field appearance="outline">
+              <mat-label>{{ 'Date Of Birth' | translate }}</mat-label>
+              <input matInput [matDatepicker]="martyrDateOfBrith" name="MartyrDateOfBrith"
+              #MartyrDateOfBrith="ngModel" [(ngModel)]="_model.MartyrDateOfBrith" required>
+              <mat-datepicker-toggle matSuffix [for]="martyrDateOfBrith"></mat-datepicker-toggle>
+              <mat-datepicker #martyrDateOfBrith></mat-datepicker>
+              <mat-error *ngIf="MartyrDateOfBrith.invalid&&MartyrDateOfBrith.touched">
+                {{ 'Fill in the date of birth field' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Date Of Death' | translate }}</mat-label>
+              <input matInput [matDatepicker]="martyrDateOfDeath" name="MartyrDateOfDeath"
+              #MartyrDateOfDeath="ngModel" [(ngModel)]="_model.MartyrDateOfDeath" required>
+              <mat-datepicker-toggle matSuffix [for]="martyrDateOfDeath"></mat-datepicker-toggle>
+              <mat-datepicker #martyrDateOfDeath></mat-datepicker>
+              <mat-error *ngIf="MartyrDateOfDeath.invalid&&MartyrDateOfDeath.touched">
+                {{ 'Fill in the date of death field' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
               <mat-label>{{'City'| translate}}</mat-label>
               <select matNativeControl name="MartyrCity" #MartyrCity="ngModel" [(ngModel)]="_model.MartyrCity"
                 (change)='onCitySelected(MartyrCity.value)' required>
@@ -48,26 +74,21 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="col-md-6 col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <mat-form-field appearance="outline">
-              <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-label>{{ 'Death Place' | translate }}</mat-label>
+              <select matNativeControl name="MartyrPlaceOfDeath" #MartyrPlaceOfDeath="ngModel" [(ngModel)]="_model.MartyrPlaceOfDeath"
+                (change)='onCitySelected(MartyrPlaceOfDeath.value)' required>
+                <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
+              </select>
+              <mat-error *ngIf="MartyrPlaceOfDeath.invalid">
+                {{ 'Select the city where the martyr died' | translate }}</mat-error>
             </mat-form-field>
           </div>
         </div>
-        <div class="col-md-6 col-xs-12">
-          <div class="form-group">
-            <mat-form-field appearance="outline">
-              <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
-        </div>
+
+
       </div>
     </div>
     <div class="card-footer">

@@ -54,7 +54,7 @@ const routes: Routes = [
       {
         path: 'martyr/add',
         component: AddMartyrComponent,
-        data: { title: 'Martyr Addition Page', icon: 'fa fa-3x fa-university' },
+        data: { title: 'Martyr Addition Page', icon: 'fas fa-user-times fa-2x' },
       },
     ],
   },
