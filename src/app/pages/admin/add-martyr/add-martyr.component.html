@@ -5,19 +5,19 @@
         <div class="col-12">
           <div class="form-group">
             <mat-form-field appearance="outline">
-              <mat-label>{{'First Name'|translate}}</mat-label>
-              <input matInput type="text" placeholder="{{'Enter Firt Name'|translate}}" name="FirstName"
-                #FirstName="ngModel" [(ngModel)]="_model.FirstName" required>
-              <mat-error *ngIf="FirstName.invalid&&FirstName.touched">
+              <mat-label>{{ 'First Name' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter Firt Name' | translate }}" name="MartyrFirstName"
+                #MartyrFirstName="ngModel" [(ngModel)]="_model.MartyrFirstName" required>
+              <mat-error *ngIf="MartyrFirstName.invalid&&MartyrFirstName.touched">
                 {{ 'First Name field must be filled' | translate }}</mat-error>
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Last Name' | translate }}</mat-label>
-              <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}" name="LastName"
-                #LastName="ngModel" [(ngModel)]="_model.LastName" required>
-              <mat-error *ngIf="LastName.invalid&&LastName.touched">
+              <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}" name="MartyrLastName"
+                #MartyrLastName="ngModel" [(ngModel)]="_model.MartyrLastName" required>
+              <mat-error *ngIf="MartyrLastName.invalid&&MartyrLastName.touched">
                 {{ 'Last Name field must be filled' | translate }}</mat-error>
             </mat-form-field>
           </div>
@@ -39,7 +39,7 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{'District'| translate}}</mat-label>
-              <select matNativeControl name="MartyrDistrict" #MartyrDistrict="ngModel" ng-model="districtSelect"
+              <select matNativeControl name="MartyrDistrict" #MartyrDistrict="ngModel" ng-model="MartyrDistrict"
                 [(ngModel)]="_model.MartyrDistrict" required>
                 <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
               </select>
@@ -48,30 +48,26 @@
             </mat-form-field>
           </div>
         </div>
-
-
-
-        <div class="form-group">
-          <label for="exampleInputFile">{{'Picture Way' | translate}}</label>
-          <div class="input-group">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">{{'Enter Picture Way' | translate}}</label>
-            </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
           </div>
         </div>
-
-        <div class="form-group">
-          <label for="exampleInputFile">{{'' | translate}}</label>
-          <mat-form-field appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
         </div>
-        
-
       </div>
     </div>
     <div class="card-footer">

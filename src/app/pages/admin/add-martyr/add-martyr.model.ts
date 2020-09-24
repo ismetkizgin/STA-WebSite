@@ -1,8 +1,11 @@
 export class Martyr {
-    FirstName: string;
-    MartyrCity: string;
-    MartyrDistrict: string;
-    MartyrEmail: string;
-    MartyrPhone: string;
-  }
-  
+  MartyrFirstName: string;
+  MartyrLastName: string;
+  MartyrDateOfBrith: Date;
+  MartyrDateOfDeath: Date;
+  MartyrCity: string;
+  MartyrDistrict: string;
+  MartyrPlaceOfDeath: string;
+  MartyrContent: Text;
+  MartyrImagePath: File;
+}

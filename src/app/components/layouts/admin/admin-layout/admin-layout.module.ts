@@ -13,14 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import {
   DashboardComponent,
   LoginComponent,
   SignUpComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
-  AddMartyrComponent
+  AddMartyrComponent,
 } from '../../../../pages/admin';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignUpComponent,
     AddInstitutionComponent,
     InstitutionListComponent,
-    AddMartyrComponent
+    AddMartyrComponent,
   ],
   imports: [
     CommonModule,
@@ -47,6 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSnackBarModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
