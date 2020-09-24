@@ -12,6 +12,7 @@ import {
   InstitutionListComponent,
   SignUpComponent,
   AddInstitutionComponent,
+  AddMartyrComponent,
 } from './pages';
 
 const routes: Routes = [
@@ -49,6 +50,11 @@ const routes: Routes = [
         path: 'institution/edit/:InstitutionID',
         component: AddInstitutionComponent,
         data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'martyr/add',
+        component: AddMartyrComponent,
+        data: { title: 'Martyr Addition Page', icon: 'fa fa-3x fa-university' },
       },
     ],
   },

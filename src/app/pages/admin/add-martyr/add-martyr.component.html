@@ -1,0 +1,81 @@
+<form #martyrRegistrationForm='ngForm' (ngSubmit)="onSave(martyrRegistrationForm)">
+  <div class="card card-outline card-info">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'First Name'|translate}}</mat-label>
+              <input matInput type="text" placeholder="{{'Enter Firt Name'|translate}}" name="FirstName"
+                #FirstName="ngModel" [(ngModel)]="_model.FirstName" required>
+              <mat-error *ngIf="FirstName.invalid&&FirstName.touched">
+                {{ 'First Name field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Last Name' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}" name="LastName"
+                #LastName="ngModel" [(ngModel)]="_model.LastName" required>
+              <mat-error *ngIf="LastName.invalid&&LastName.touched">
+                {{ 'Last Name field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'City'| translate}}</mat-label>
+              <select matNativeControl name="MartyrCity" #MartyrCity="ngModel" [(ngModel)]="_model.MartyrCity"
+                (change)='onCitySelected(MartyrCity.value)' required>
+                <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
+              </select>
+              <mat-error *ngIf="MartyrCity.invalid">
+                {{ 'Select the city where the martyr was born' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'District'| translate}}</mat-label>
+              <select matNativeControl name="MartyrDistrict" #MartyrDistrict="ngModel" ng-model="districtSelect"
+                [(ngModel)]="_model.MartyrDistrict" required>
+                <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+              </select>
+              <mat-error *ngIf="MartyrDistrict.invalid&&MartyrDistrict.touched">
+                {{ 'Select the county where the martyr was born' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="exampleInputFile">{{'Picture Way' | translate}}</label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="exampleInputFile">
+              <label class="custom-file-label" for="exampleInputFile">{{'Enter Picture Way' | translate}}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputFile">{{'' | translate}}</label>
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        
+
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
+    </div>
+  </div>
+</form>
