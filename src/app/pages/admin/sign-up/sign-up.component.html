@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'T.R. Identification Number' | translate }}</mat-label>
-                            <input matInput type="text"
+                            <input matInput type="text" pattern="[0-9]{11}"
                                 placeholder="{{ 'Enter T.R. Identification Number' | translate }}" name="UserIdentityNo"
                                 #UserIdentityNo="ngModel" [(ngModel)]="_model.UserIdentityNo" required>
                             <mat-error *ngIf="UserIdentityNo.invalid&&UserIdentityNo.touched">
@@ -20,8 +20,8 @@
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'First Name' | translate }}</mat-label>
                             <input matInput type="text" placeholder="{{ 'Enter First Name' | translate }}"
-                                name="UserFirstName" #UserFirstName="ngModel" [(ngModel)]="_model.UserFirstName"
-                                required>
+                                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="UserFirstName" #UserFirstName="ngModel"
+                                [(ngModel)]="_model.UserFirstName" required>
                             <mat-error *ngIf="UserFirstName.invalid&&UserFirstName.touched">
                                 {{ 'User First Name field must be filled' | translate }}</mat-error>
                         </mat-form-field>
@@ -30,7 +30,8 @@
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Last Name' | translate }}</mat-label>
                             <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}"
-                                name="UserLastName" #UserLastName="ngModel" [(ngModel)]="_model.UserLastName" required>
+                                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="UserLastName" #UserLastName="ngModel"
+                                [(ngModel)]="_model.UserLastName" required>
                             <mat-error *ngIf="UserLastName.invalid&&UserLastName.touched">
                                 {{ 'User Last Name field must be filled' | translate }}</mat-error>
                         </mat-form-field>
@@ -51,7 +52,8 @@
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Phone Number' | translate }}</mat-label>
                             <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" #UserPhone="ngModel" [(ngModel)]="_model.UserPhone" required>
+                                pattern="[0-9]{11}" name="UserPhone" #UserPhone="ngModel"
+                                [(ngModel)]="_model.UserPhone" required>
                             <mat-error *ngIf="UserPhone.invalid&&UserPhone.touched">
                                 {{ 'Phone number field must be filled' | translate }}</mat-error>
                         </mat-form-field>
@@ -60,7 +62,8 @@
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Email Address' | translate }}</mat-label>
                             <input matInput type="text" placeholder="{{ 'Enter Email Address' | translate }}"
-                                name="UserEmail" #UserEmail="ngModel" [(ngModel)]="_model.UserEmail" required>
+                                pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="UserEmail" #UserEmail="ngModel"
+                                [(ngModel)]="_model.UserEmail" required>
                             <mat-error *ngIf="UserEmail.invalid&&UserEmail.touched">
                                 {{ 'Email adress field must be filled' | translate }}</mat-error>
                         </mat-form-field>
@@ -119,5 +122,5 @@
             </div>
         </div>
     </div>
-    
+
 </form>
