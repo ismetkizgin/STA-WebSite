@@ -3,32 +3,28 @@
         <table class="table table-hover text-nowrap">
             <thead>
                 <tr>
-                    <th>{{ 'Institution No' | translate}}</th>
+                    <th>{{ 'User No' | translate }}</th>
+                    <th>{{ 'First Name' | translate }} {{ 'Last Name' | translate }}</th>
                     <th>{{ 'Institution Name' | translate }}</th>
-                    <th>{{ 'E-mail' | translate }}</th>
-                    <th>{{ 'Phone' | translate }}</th>
-                    <th>{{ 'City/District ' | translate }}</th>
+                    <th>{{ 'User Type' | translate }}</th>
                     <th style="width: 5%;"></th>
                 </tr>
             </thead>
             <tbody>
-
-                <tr *ngFor="let item of data">
-                    <td>{{ item.InstitutionID }}</td>
-                    <td>{{ item.InstitutionName }}</td>
-                    <td>{{ item.InstitutionEmail }}</td>
-                    <td>{{ item.InstitutionPhone }}</td>
-                    <td>{{ item.InstitutionCity }}/{{item.InstitutionDistrict}}</td>
+                <tr *ngFor="let user of data">
+                    <td>{{ user.UserID }}</td>
+                    <td>{{ user.UserFirstName }} {{ user.UserLastName }}</td>
+                    <td>{{ user.InstitutionName }}</td>
+                    <th>{{ user.UserStatusName }}</th>
                     <td class="list-button text-right">
                         <a class="btn btn-primary btn-sm ml-1" href="#">
                             <i class="fas fa-folder"></i> {{ 'Examine' | translate }}</a>
-                        <a class="btn btn-info btn-sm ml-1" href="#">
+                        <a class="btn btn-info btn-sm ml-1" href="admin/user/edit/{{ user.UserID }}">
                             <i class="fas fa-pencil-alt"></i> {{ 'Edit' | translate }}</a>
-                        <a class="btn btn-danger btn-sm ml-1" href="#">
+                        <a (click)="userDelete(user.UserID)" class="btn btn-danger btn-sm ml-1">
                             <i class="fas fa-trash"></i> {{ 'Delete' | translate }}</a>
                     </td>
                 </tr>
-
             </tbody>
         </table>
     </div>

@@ -9,8 +9,10 @@ import {
   HomepageComponent,
   DashboardComponent,
   LoginComponent,
-  InstituonalListingComponent,
+  InstitutionListComponent,
   SignUpComponent,
+  AddInstitutionComponent,
+  UserListComponent
 } from './pages';
 
 const routes: Routes = [
@@ -35,9 +37,24 @@ const routes: Routes = [
         data: { title: 'Sign Up', icon: 'fa fa-3x fa-user' },
       },
       {
-        path: 'institution-listing',
-        component: InstituonalListingComponent,
+        path: 'institutions',
+        component: InstitutionListComponent,
         data: { title: 'Institution List', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'institution/add',
+        component: AddInstitutionComponent,
+        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'institution/edit/:InstitutionID',
+        component: AddInstitutionComponent,
+        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+      },
+      {
+        path: 'users',
+        component: UserListComponent,
+        data: { title: 'User List', icon: 'fa fa-3x fa-users' },
       },
     ],
   },

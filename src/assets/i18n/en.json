@@ -1,43 +1,62 @@
 {
-	"Automatic password generation": "Automatic password generation",
-	"Contact information": "Contact information",
-	"Email Address": "Email Address",
-	"Email adress field must be filled": "Email adress field must be filled.",
-	"Enter Email Address": "Enter Email Address",
-	"Enter First Name": "Enter First Name",
-	"Enter Institution Name": "Enter Institution Name",
-	"Enter Last Name": "Enter Last Name",
-	"Enter Password": "Enter Password",
-	"Enter Phone Number": "Enter Phone Number",
-	"Enter T": {
-		"R": {
-			" Identification Number": "Enter T.R. Identification Number"
-		}
-	},
-	"First Name": "First Name",
-	"Forgot password ?": "Forgot password ?",
-	"Institution Name": "Institution Name",
-	"Last Name": "Last Name",
-	"Login": "Login",
-	"Password": "Password",
-	"Password cannot be shorter than 6 characters": "Password cannot be shorter than 6 characters.",
-	"Personal Informations": "Personal Informations",
-	"Phone Number": "Telefon Numarası",
-	"Phone number field must be filled": "Phone number field must be filled",
-	"Please enter correct user information !": "Please enter correct user information !",
-	"Please fill in the required fields": "Please fill in the required fields.",
-	"Safety Informations": "Safety Informations",
-	"Save": "Save",
-	"Server error occurred, please try again later If the error persists, we ask you to report this to the authorities": "Server error occurred, please try again later. If the error persists, we ask you to report this to the authorities.",
-	"T": {
-		"R": {
-			" Identification Number": "T.R. Identification Number",
-			" Identification Number field must be filled": "T.R. Identification Number field must be filled."
-		}
-	},
-	"There is no such user!": "There is no such user !",
-	"User first name field must be filled": "User first name field must be filled.",
-	"User last name field must be filled": "User last name field must be filled.",
-	"User registration is complete": "User registration is complete.",
-	"home": "home"
+  "Ailem Güvende": "Ailem Güvende",
+  "Automatic password generation": "Automatic password generation",
+  "City": "City",
+  "City/District ": "City/District",
+  "Contact information": "Contact information",
+  "Delete": "Delete",
+  "District": "District",
+  "E-mail": "E-mail",
+  "Edit": "Edit",
+  "Email Address": "Email Address",
+  "Email adress field must be filled": "Email adress field must be filled.",
+  "Enter Email Address": "Enter Email Address",
+  "Enter First Name": "Enter First Name",
+  "Enter Institution Name": "Enter Institution Name",
+  "Enter Last Name": "Enter Last Name",
+  "Enter Password": "Enter Password",
+  "Enter Phone Number": "Enter Phone Number",
+  "Enter T": {
+    "R": {
+      " Identification Number": "Enter T.R. Identification Number"
+    }
+  },
+  "Examine": "Examine",
+  "First Name": "First Name",
+  "Forgot password ?": "Forgot password ?",
+  "Institution Name": "Institution Name",
+  "Institution Name field must be filled": "Institution Name field must be filled.",
+  "Institution No": "Institution No",
+  "Institution information was successfully deleted": "Institution information was successfully deleted.",
+  "Last Name": "Last Name",
+  "Login": "Login",
+  "Password": "Password",
+  "Password cannot be shorter than 6 characters": "Password cannot be shorter than 6 characters.",
+  "Personal Informations": "Personal Informations",
+  "Phone": "Phone",
+  "Phone Number": "Telefon Numarası",
+  "Phone number field must be filled": "Phone number field must be filled",
+  "Please enter correct institution information !": "Please enter correct institution information !",
+  "Please enter correct user information !": "Please enter correct user information !",
+  "Please fill in the required fields": "Please fill in the required fields.",
+  "Safety Informations": "Safety Informations",
+  "Save": "Save",
+  "Select the city where the institution is located": "Select the city where the institution is located",
+  "Select the district where the institution is located": "Select the district where the institution is located.",
+  "Server error occurred, please try again later If the error persists, we ask you to report this to the authorities": "Server error occurred, please try again later. If the error persists, we ask you to report this to the authorities.",
+  "Such an institution is already registered in the system !": "Such an institution is already registered in the system !",
+  "T": {
+    "R": {
+      " Identification Number": "T.R. Identification Number",
+      " Identification Number field must be filled": "T.R. Identification Number field must be filled."
+    }
+  },
+  "There is no such user!": "There is no such user !",
+  "Unauthorized transaction !": "Unauthorized transaction !",
+  "User No": "User No",
+  "User Type": "User Type",
+  "User first name field must be filled": "User first name field must be filled.",
+  "User last name field must be filled": "User last name field must be filled.",
+  "User registration is complete": "User registration is complete.",
+  "home": "home"
 }
