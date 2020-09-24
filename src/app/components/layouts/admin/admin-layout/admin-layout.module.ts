@@ -19,6 +19,7 @@ import {
   SignUpComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
+  MartyrListComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     SignUpComponent,
     AddInstitutionComponent,
-    InstitutionListComponent
+    InstitutionListComponent,
+    MartyrListComponent
   ],
   imports: [
     CommonModule,

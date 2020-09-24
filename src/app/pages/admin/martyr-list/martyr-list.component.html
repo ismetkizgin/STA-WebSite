@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>{{ 'Martyr ID' | translate }}</th>
+                    <th>{{ 'First Name' | translate }} {{ 'Last Name' | translate }}</th>
+                    <th>{{ 'City' | translate }}/{{ 'District' | translate }}</th>
+                    <th>{{ 'Rank' | translate }}</th>
+                    <th>{{ 'Institution Name' | translate }}</th>
+                    <th>{{ 'Institution ID' | translate }}</th>
+                    <th style="width: 5%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let martry of data">
+                    <td>{{ martry.MartyrID }}</td>
+                    <td>{{ martry.MartyrFirstName }} {{ martry.MartyrLastName }}</td>
+                    <td>{{ martry.MartyrCity }} {{ martry.MartyrDistrict }}</td>
+                    <td>{{ martry.RankID }}</td>
+                    <td>{{ martry.InstitutionName }}</td>
+                    <td>{{ martry.InstitutionID }}</td>
+                    <td class="list-button text-right">
+                        <a class="btn btn-primary btn-sm ml-1" href="#">
+                            <i class="fas fa-folder"></i> {{ 'Examine' | translate }}</a>
+                        <a class="btn btn-info btn-sm ml-1" href="#">
+                            <i class="fas fa-pencil-alt"></i> {{ 'Edit' | translate }}</a>
+                        <a (click)="userDelete(user.UserID)" class="btn btn-danger btn-sm ml-1">
+                            <i class="fas fa-trash"></i> {{ 'Delete' | translate }}</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
