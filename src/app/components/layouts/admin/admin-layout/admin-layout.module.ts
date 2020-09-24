@@ -19,6 +19,7 @@ import {
   SignUpComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
+  UserListComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     SignUpComponent,
     AddInstitutionComponent,
-    InstitutionListComponent
+    InstitutionListComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,
@@ -55,4 +57,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
