@@ -12,7 +12,7 @@ import {
   InstitutionListComponent,
   SignUpComponent,
   AddInstitutionComponent,
-  UserListComponent
+  UserListComponent,
 } from './pages';
 
 const routes: Routes = [
@@ -25,6 +25,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
