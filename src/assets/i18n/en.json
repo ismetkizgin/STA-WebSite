@@ -53,10 +53,17 @@
   },
   "There is no such user!": "There is no such user !",
   "Unauthorized transaction !": "Unauthorized transaction !",
+  "User First Name field must be filled": "User First Name field must be filled.",
+  "User Last Name field must be filled": "User Last Name field must be filled.",
   "User No": "User No",
   "User Type": "User Type",
-  "User first name field must be filled": "User first name field must be filled.",
-  "User last name field must be filled": "User last name field must be filled.",
   "User registration is complete": "User registration is complete.",
-  "home": "home"
+  "home": "home",
+  "Dashboard": "Dashboard",
+  "User Transactions": "User Transactions",
+  "User List": "User List",
+  "User Add": "User Add",
+  "Institution Transactions": "Institution Transactions",
+  "Institution List": "Institution List",
+  "Institution Add": "Institution Add"
 }
