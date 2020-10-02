@@ -3,7 +3,8 @@ import { InstitutionService } from '../../../utils/services';
 import { Institution } from './institution-list.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatDialog } from '@angular/material/dialog';
+import { InstitutionInfoDialogComponent } from '../institution-info-dialog/institution-info-dialog.component';
 @Component({
   selector: 'app-institution-list',
   templateUrl: './institution-list.component.html',
@@ -13,8 +14,14 @@ export class InstitutionListComponent implements OnInit {
   constructor(
     private _institutionService: InstitutionService,
     private _snackBar: MatSnackBar,
-    private _translateService: TranslateService
-  ) {}
+    private _translateService: TranslateService,
+    public dialog: MatDialog
+  ) { }
+  openDialog() {
+    this.dialog.open(InstitutionInfoDialogComponent, {
+      width: '90%'
+    });
+  }
   data: Institution[];
 
   async ngOnInit() {
@@ -71,5 +78,5 @@ export class InstitutionListComponent implements OnInit {
     }
   }
 
-  errorNotification(error) {}
+  errorNotification(error) { }
 }
