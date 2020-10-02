@@ -3,7 +3,8 @@ import { User } from './user-list.model';
 import { UserService } from '../../../utils/services';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatDialog } from '@angular/material/dialog';
+import { UserInfoDialogComponent } from '../user-info-dialog/user-info-dialog.component';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -14,9 +15,14 @@ export class UserListComponent implements OnInit {
   constructor(
     private _userService: UserService,
     private _snackBar: MatSnackBar,
-    private _translateService: TranslateService
-    ) { }
-
+    private _translateService: TranslateService,
+    public dialog: MatDialog
+  ) { }
+  openDialog() {
+    this.dialog.open(UserInfoDialogComponent, {
+      width: '90%'
+    });
+  }
   data: User[];
 
   async ngOnInit() {

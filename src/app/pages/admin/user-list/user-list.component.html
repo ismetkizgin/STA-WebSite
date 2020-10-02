@@ -17,11 +17,11 @@
                     <td>{{ user.InstitutionName }}</td>
                     <th>{{ user.UserStatusName }}</th>
                     <td class="list-button text-right">
-                        <a class="btn btn-primary btn-sm ml-1" href="#">
+                        <a (click)="openDialog()" class="btn btn-primary btn-sm ml-1 text-light">
                             <i class="fas fa-folder"></i> {{ 'Examine' | translate }}</a>
-                        <a class="btn btn-info btn-sm ml-1" href="admin/user/edit/{{ user.UserID }}">
+                        <a class="btn btn-info btn-sm ml-1 text-light" href="admin/user/edit/{{ user.UserID }}">
                             <i class="fas fa-pencil-alt"></i> {{ 'Edit' | translate }}</a>
-                        <a (click)="userDelete(user.UserID)" class="btn btn-danger btn-sm ml-1">
+                        <a (click)="userDelete(user.UserID)" class="btn btn-danger btn-sm ml-1 text-light">
                             <i class="fas fa-trash"></i> {{ 'Delete' | translate }}</a>
                     </td>
                 </tr>
