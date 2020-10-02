@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Roles } from '../../../../model/roles';
 
 @Injectable({
   providedIn: 'root',
@@ -8,11 +9,11 @@ export class SidebarItemService {
   constructor(private _router: Router) {}
 
   _url = this._router.routerState.snapshot.url;
-  menu: object = [
+  menu: Array<object> = [
     {
       title: 'Dashboard',
       icon: 'fa-microchip',
-      link: '/admin',
+      link: '/admin'
     },
     {
       title: 'User Transactions',
@@ -29,6 +30,7 @@ export class SidebarItemService {
           link: '/admin/user/add',
         },
       ],
+      authorize: [Roles.Root, Roles.InstitutionAdmin, Roles.Administrator],
     },
     {
       title: 'Institution Transactions',
@@ -48,6 +50,7 @@ export class SidebarItemService {
           link: '/admin/institution/add',
         },
       ],
+      authorize: [Roles.Root, Roles.Administrator],
     },
   ];
 

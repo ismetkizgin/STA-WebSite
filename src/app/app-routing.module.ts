@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './utils/guards';
+import { Roles } from './model/roles';
+
 import {
   ClientLayoutComponent,
   AdminLayoutComponent,
@@ -10,7 +12,7 @@ import {
   DashboardComponent,
   LoginComponent,
   InstitutionListComponent,
-  SignUpComponent,
+  AddUserComponent,
   AddInstitutionComponent,
   UserListComponent,
 } from './pages';
@@ -34,28 +36,48 @@ const routes: Routes = [
       },
       {
         path: 'user/add',
-        component: SignUpComponent,
-        data: { title: 'Sign Up', icon: 'fa fa-2x fa-user' },
+        component: AddUserComponent,
+        data: {
+          title: 'User Add',
+          icon: 'fa fa-2x fa-user',
+          authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
+        },
       },
       {
         path: 'institutions',
         component: InstitutionListComponent,
-        data: { title: 'Institution List', icon: 'fa fa-2x fa-university' },
+        data: {
+          title: 'Institution List',
+          icon: 'fa fa-2x fa-university',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
       },
       {
         path: 'institution/add',
         component: AddInstitutionComponent,
-        data: { title: 'Add Institution', icon: 'fa fa-2x fa-university' },
+        data: {
+          title: 'Institution Add',
+          icon: 'fa fa-2x fa-university',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
       },
       {
         path: 'institution/edit/:InstitutionID',
         component: AddInstitutionComponent,
-        data: { title: 'Add Institution', icon: 'fa fa-2x fa-university' },
+        data: {
+          title: 'Institution Edit',
+          icon: 'fa fa-2x fa-university',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
       },
       {
         path: 'users',
         component: UserListComponent,
-        data: { title: 'User List', icon: 'fa fa-2x fa-users' },
+        data: {
+          title: 'User List',
+          icon: 'fa fa-2x fa-users',
+          authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
+        },
       },
     ],
   },

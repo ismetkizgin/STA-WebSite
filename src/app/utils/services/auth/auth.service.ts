@@ -40,9 +40,7 @@ export class AuthService {
       );
       if (respone.result) {
         localStorage.setItem('currentUser', JSON.stringify(respone));
-        localStorage.setItem('token', respone.token);
         this.currentUserSubject.next(respone);
-        console.log('deneme');
         this._router.navigateByUrl('admin');
       }
       return respone;

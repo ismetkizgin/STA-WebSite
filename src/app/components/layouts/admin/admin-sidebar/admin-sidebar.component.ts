@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarItemService } from './siderbar-item.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -8,15 +8,22 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./admin-sidebar.component.scss'],
 })
 export class AdminSidebarComponent implements OnInit {
-  menu: object = [];
-
+  menu: Array<any> = [];
   constructor(
     private _sidebarItemService: SidebarItemService,
     private _router: Router
   ) {}
 
   ngOnInit(): void {
-    this.menu = this._sidebarItemService.menu;
+    this._sidebarItemService.menu.forEach((item: any) => {
+      if (
+        !item.authorize ||
+        item.authorize.indexOf(
+          JSON.parse(localStorage.getItem('currentUser')).result.UserStatusName
+        ) != -1
+      )
+        this.menu.push(item);
+    });
   }
 
   toggle(indis) {
