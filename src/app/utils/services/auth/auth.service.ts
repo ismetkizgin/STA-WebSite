@@ -17,7 +17,6 @@ export class AuthService {
   constructor(
     private _apiFetchService: ApiFetchService,
     private _router: Router,
-    private http: HttpClient,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService
   ) {
@@ -40,9 +39,7 @@ export class AuthService {
       );
       if (respone.result) {
         localStorage.setItem('currentUser', JSON.stringify(respone));
-        localStorage.setItem('token', respone.token);
         this.currentUserSubject.next(respone);
-        console.log('deneme');
         this._router.navigateByUrl('admin');
       }
       return respone;
@@ -76,18 +73,16 @@ export class AuthService {
 
   async tokenDecode() {
     try {
-      if (localStorage.getItem('currentUser') != null) {
-        const response: any = await this._apiFetchService.requestAsync(
+      if (this.currentUserValue) {
+        return await this._apiFetchService.requestAsync(
           'GET',
           'token-decode',
           null,
           true
         );
-        return response;
       }
       return false;
     } catch (error) {
-      console.log(error);
       return false;
     }
   }

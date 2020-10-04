@@ -1,43 +1,67 @@
 import { Component, OnInit } from '@angular/core';
-import { Institution } from './add-institution.model';
-import { TranslateService } from '@ngx-translate/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
-import { getCityName, getDistrictsName } from 'turkey-yl-district';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { UserModel } from './user.model';
+import {
+  AuthService,
+  InstitutionService,
+  UserService,
+} from '../../../utils/services';
+import { Roles } from '../../../models/roles';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InstitutionService } from '../../../utils/services';
 
 @Component({
-  selector: 'app-add-institution',
-  templateUrl: './add-institution.component.html',
-  styleUrls: ['./add-institution.component.scss'],
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.scss'],
 })
-export class AddInstitutionComponent implements OnInit {
-  citys: object;
-  districts: object;
-  _action: Function;
-  _districtSelectedValu: string;
-
+export class AddUserComponent implements OnInit {
   constructor(
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
+    private _authService: AuthService,
+    public _router: Router,
     private _activatedRoute: ActivatedRoute,
     private _institutionService: InstitutionService,
-    private _router: Router
+    private _userService: UserService
   ) {}
-  _model: Institution = new Institution();
+
+  _action: Function;
+  _model: UserModel = new UserModel();
+  _passwordShowHide: boolean = false;
+  institutions: Array<any>;
+  _UserStatusName = this._authService.currentUserValue.result.UserStatusName;
+  userRoles: Array<object> = [
+    {
+      userStatusName: 'Administrator',
+      authorize:
+        [Roles.Root].indexOf(this._UserStatusName) === -1 ? false : true,
+    },
+    {
+      userStatusName: 'Institution Admin',
+      authorize:
+        [Roles.Root, Roles.Administrator].indexOf(this._UserStatusName) === -1
+          ? false
+          : true,
+    },
+    {
+      userStatusName: 'Editor',
+      authorize:
+        [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin].indexOf(
+          this._UserStatusName
+        ) === -1
+          ? false
+          : true,
+    },
+  ];
 
   async ngOnInit() {
-    this.citys = await getCityName();
-    const InstitutionID = this._activatedRoute.snapshot.paramMap.get(
-      'InstitutionID'
-    );
-    if (InstitutionID != null) {
+    const UserID = this._activatedRoute.snapshot.paramMap.get('UserID');
+    this.institutions = Array<any>(await this._institutionService.listAsync());
+    if (UserID != null) {
       try {
-        this._model = (<any>(
-          await this._institutionService.findAsync(InstitutionID)
-        ));
-        this.getDistricts(this._model.InstitutionCity);
+        this._model = <any>await this._userService.findAsync(UserID);
       } catch (error) {
         console.log(error);
         switch (error.status) {
@@ -55,18 +79,18 @@ export class AddInstitutionComponent implements OnInit {
     }
   }
 
-  async onSave(institutionForm: NgForm) {
+  async onSave(userForm: NgForm) {
     let notification: any = {
       message: '',
       panelClass: '',
     };
 
-    if (institutionForm.valid) {
+    if (userForm.valid) {
       this._translateService
-        .get('Institution registration is complete')
+        .get('User registration is complete')
         .subscribe((value) => (notification.message = value));
       notification.panelClass = 'notification__success';
-      if (!(await this._action(institutionForm))) return;
+      if (!(await this._action(userForm))) return;
     } else {
       this._translateService
         .get('Please fill in the required fields')
@@ -82,20 +106,20 @@ export class AddInstitutionComponent implements OnInit {
     });
   }
 
-  async getDistricts(cityName) {
-    this.districts = (<any>await getDistrictsName(cityName)).Districts;
+  onAutomaticPasswordGeneration(): void {
+    this._model.UserPassword = this._authService.creatingPassword(8);
+    this._passwordShowHide = true;
   }
 
-  async onCitySelected(cityName) {
-    this.getDistricts(cityName);
-    if (this._model.InstitutionDistrict != null)
-      this._model.InstitutionDistrict = '';
+  onPasswordToggle(): void {
+    if (this._passwordShowHide) this._passwordShowHide = false;
+    else this._passwordShowHide = true;
   }
 
-  async insertActionAsync(institutionForm: NgForm) {
+  async insertActionAsync(userForm: NgForm) {
     try {
-      await this._institutionService.insertAsync(institutionForm.value);
-      institutionForm.resetForm();
+      await this._userService.insertAsync(userForm.value);
+      userForm.resetForm();
       return true;
     } catch (error) {
       this.errorNotification(error);
@@ -103,12 +127,12 @@ export class AddInstitutionComponent implements OnInit {
     }
   }
 
-  async updateActionAsync(institutionForm: NgForm) {
+  async updateActionAsync(userForm: NgForm) {
     try {
-      await this._institutionService.updateAsync(
-        Object.assign(institutionForm.value, {
-          InstitutionID: parseInt(
-            this._activatedRoute.snapshot.paramMap.get('InstitutionID')
+      await this._userService.updateAsync(
+        Object.assign(userForm.value, {
+          UserID: parseInt(
+            this._activatedRoute.snapshot.paramMap.get('UserID')
           ),
         })
       );
@@ -129,12 +153,12 @@ export class AddInstitutionComponent implements OnInit {
         break;
       case 409:
         this._translateService
-          .get('Such an institution is already registered in the system !')
+          .get('Such an user is already registered in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       case 417:
         this._translateService
-          .get('Please enter correct institution information !')
+          .get('Please enter correct user information !')
           .subscribe((value) => (errorMessage = value));
         break;
       default:

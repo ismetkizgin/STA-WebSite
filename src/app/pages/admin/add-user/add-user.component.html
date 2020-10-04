@@ -1,4 +1,4 @@
-<form #signUpForm='ngForm' (ngSubmit)="onSave(signUpForm)">
+<form #userForm='ngForm' (ngSubmit)="onSave(userForm)">
     <div class="row">
         <div class="col-lg-6 col-md-12 col-xs-12">
             <div class="card card-outline card-info">
@@ -70,11 +70,15 @@
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
-                            <mat-label>{{ 'Institution Name' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Institution Name' | translate }}"
-                                name="InstitutionName" disabled=true>
+                            <mat-label>{{'Institution Name'| translate}}</mat-label>
+                            <select matNativeControl name="InstitutionID" #InstitutionID="ngModel"
+                                ng-model="institutionSelect" [(ngModel)]="_model.InstitutionID" required>
+                                <option *ngFor="let institution of institutions" [value]="institution.InstitutionID">
+                                    {{ institution.InstitutionName }}</option>
+                            </select>
+                            <mat-error *ngIf="InstitutionID.invalid&&InstitutionID.touched">
+                                {{ 'Select the district where the institution is located' | translate }}</mat-error>
                         </mat-form-field>
-
                     </div>
                 </div>
             </div>
@@ -87,32 +91,50 @@
                 </div>
                 <div class="card-body pad">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <mat-form-field appearance="outline">
-                                    <mat-label>{{ 'Password' | translate }}</mat-label>
-                                    <input matInput [type]=" _passwordShowHide ? 'text' : 'password'"
-                                        placeholder="{{ 'Enter Password' | translate }}" name="UserPassword"
-                                        minlength="6" #UserPassword="ngModel" [(ngModel)]="_model.UserPassword"
-                                        required>
-                                    <a type="button" matSuffix (click)="_passwordShowHide = !_passwordShowHide"
-                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="_passwordShowHide">
-                                        <mat-icon>{{ _passwordShowHide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                    </a>
-                                    <mat-error
-                                        *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.minlength">
-                                        {{ 'Password cannot be shorter than 6 characters' | translate }}</mat-error>
-                                    <mat-error
-                                        *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.required">
-                                        {{ 'Email adress field must be filled' | translate }}</mat-error>
+                                    <mat-label>{{'User Type'| translate}}</mat-label>
+                                    <select matNativeControl name="UserStatusName" #UserStatusName="ngModel"
+                                        ng-model="UserStatusNameSelect" [(ngModel)]="_model.UserStatusName" required>
+                                        <option *ngFor="let userRole of userRoles" [value]="userRole.userStatusName"
+                                            [disabled]="!userRole.authorize">
+                                            {{ userRole.userStatusName | translate }}</option>
+                                    </select>
+                                    <mat-error *ngIf="UserStatusName.invalid&&UserStatusName.touched">
+                                        {{ 'Select the district where the institution is located' | translate }}
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
-
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="form-group">
-                                <button type="button" (click)="onAutomaticPasswordGeneration()"
-                                    class="btn btn-success">{{ 'Automatic password generation' | translate }}</button>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="col-lg-12 col-md-12 col-xs-12">
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>{{ 'Password' | translate }}</mat-label>
+                                        <input matInput [type]=" _passwordShowHide ? 'text' : 'password'"
+                                            placeholder="{{ 'Enter Password' | translate }}" name="UserPassword"
+                                            minlength="6" #UserPassword="ngModel" [(ngModel)]="_model.UserPassword"
+                                            [required]="!_router.isActive('admin/user/edit',false)" [disabled]="_router.isActive('/admin/user/edit',false)">
+                                        <a type="button" matSuffix (click)="_passwordShowHide = !_passwordShowHide"
+                                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="_passwordShowHide">
+                                            <mat-icon>{{ _passwordShowHide ? 'visibility_off' : 'visibility'}}
+                                            </mat-icon>
+                                        </a>
+                                        <mat-error
+                                            *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.minlength">
+                                            {{ 'Password cannot be shorter than 6 characters' | translate }}</mat-error>
+                                        <mat-error
+                                            *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.required">
+                                            {{ 'Email adress field must be filled' | translate }}</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-xs-12">
+                                <div class="form-group text-right">
+                                    <button type="button" (click)="onAutomaticPasswordGeneration()"
+                                        class="btn btn-success">{{ 'Automatic password generation' | translate }}</button>
+                                </div>
                             </div>
                         </div>
                     </div>

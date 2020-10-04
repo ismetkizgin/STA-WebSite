@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.2.0 (2020-10-02)
+
+
+### Features
+
+* role filter applied for router and menu ([364a8e3](https://github.com/ismetkizgin/STA-WebSite/commit/364a8e361a7f2e844839b9a9ff98886cee517436))
+
+
 ## 1.1.0 (2020-09-24)
 
 ### Features

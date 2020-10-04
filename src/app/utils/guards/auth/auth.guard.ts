@@ -15,8 +15,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(
-    private router: Router,
-    private authenticationService: AuthService
+    private _router: Router,
+    private _authenticationService: AuthService
   ) {}
 
   callback: Function;
@@ -36,18 +36,22 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ) {
-    const currentUser = this.authenticationService.currentUserValue;
-
-    const response: any = await this.authenticationService.tokenDecode();
-    console.log(response);
-    if (currentUser && response) {
-      console.log(currentUser);
-      // authorised so return true
+    const response: any = await this._authenticationService.tokenDecode();
+    if (response) {
+      if (
+        next.data.authorize &&
+        next.data.authorize.indexOf(response.UserStatusName) === -1
+      ) {
+        this._router.navigate(['/admin']);
+        return false;
+      }
       return true;
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    this._router.navigate(['/login'], {
+      queryParams: { returnUrl: state.url },
+    });
     return false;
   }
 }
