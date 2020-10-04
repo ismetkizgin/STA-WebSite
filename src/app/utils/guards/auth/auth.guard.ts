@@ -36,10 +36,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ) {
-    const currentUser = this._authenticationService.currentUserValue;
-
     const response: any = await this._authenticationService.tokenDecode();
-    if (currentUser && response) {
+    if (response) {
       if (
         next.data.authorize &&
         next.data.authorize.indexOf(response.UserStatusName) === -1
