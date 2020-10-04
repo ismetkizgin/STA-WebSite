@@ -55,18 +55,18 @@ export class AddInstitutionComponent implements OnInit {
     }
   }
 
-  async onSave(signUpForm: NgForm) {
+  async onSave(institutionForm: NgForm) {
     let notification: any = {
       message: '',
       panelClass: '',
     };
 
-    if (signUpForm.valid) {
+    if (institutionForm.valid) {
       this._translateService
-        .get('User registration is complete')
+        .get('Institution registration is complete')
         .subscribe((value) => (notification.message = value));
       notification.panelClass = 'notification__success';
-      if (!(await this._action(signUpForm))) return;
+      if (!(await this._action(institutionForm))) return;
     } else {
       this._translateService
         .get('Please fill in the required fields')
@@ -92,10 +92,10 @@ export class AddInstitutionComponent implements OnInit {
       this._model.InstitutionDistrict = '';
   }
 
-  async insertActionAsync(signUpForm: NgForm) {
+  async insertActionAsync(institutionForm: NgForm) {
     try {
-      await this._institutionService.insertAsync(signUpForm.value);
-      signUpForm.resetForm();
+      await this._institutionService.insertAsync(institutionForm.value);
+      institutionForm.resetForm();
       return true;
     } catch (error) {
       this.errorNotification(error);
@@ -103,10 +103,10 @@ export class AddInstitutionComponent implements OnInit {
     }
   }
 
-  async updateActionAsync(signUpForm: NgForm) {
+  async updateActionAsync(institutionForm: NgForm) {
     try {
       await this._institutionService.updateAsync(
-        Object.assign(signUpForm.value, {
+        Object.assign(institutionForm.value, {
           InstitutionID: parseInt(
             this._activatedRoute.snapshot.paramMap.get('InstitutionID')
           ),
