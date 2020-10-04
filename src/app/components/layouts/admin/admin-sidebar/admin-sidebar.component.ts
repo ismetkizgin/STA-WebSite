@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarItemService } from './siderbar-item.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../../utils/services';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -11,7 +12,8 @@ export class AdminSidebarComponent implements OnInit {
   menu: Array<any> = [];
   constructor(
     private _sidebarItemService: SidebarItemService,
-    private _router: Router
+    private _router: Router,
+    private _authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -19,7 +21,7 @@ export class AdminSidebarComponent implements OnInit {
       if (
         !item.authorize ||
         item.authorize.indexOf(
-          JSON.parse(localStorage.getItem('currentUser')).result.UserStatusName
+          this._authService.currentUserValue.result.UserStatusName
         ) != -1
       )
         this.menu.push(item);

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './utils/guards';
-import { Roles } from './model/roles';
+import { Roles } from './models/roles';
 
 import {
   ClientLayoutComponent,
