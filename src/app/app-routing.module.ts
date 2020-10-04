@@ -44,6 +44,15 @@ const routes: Routes = [
         },
       },
       {
+        path: 'user/edit/:UserID',
+        component: AddUserComponent,
+        data: {
+          title: 'User Add',
+          icon: 'fa fa-2x fa-user',
+          authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
+        },
+      },
+      {
         path: 'institutions',
         component: InstitutionListComponent,
         data: {

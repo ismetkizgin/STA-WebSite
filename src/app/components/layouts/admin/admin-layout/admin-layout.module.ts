@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {
   DashboardComponent,
   LoginComponent,
-  SignUpComponent,
+  AddUserComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
   UserListComponent,
@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminControlSidebarComponent,
     AdminSidebarComponent,
     LoginComponent,
-    SignUpComponent,
+    AddUserComponent,
     AddInstitutionComponent,
     InstitutionListComponent,
     UserListComponent,
