@@ -1,4 +1,16 @@
 <mat-dialog-content class="mat-typography">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-10">
+                    <h1 class="m-0 text-dark">{{ 'User information' | translate}}</h1>
+                </div>
+                <div class="col-2 text-right text-muted">
+                    <i class="fa fa-2x fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="card card-outline card-info">
@@ -9,22 +21,19 @@
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'T.R. Identification Number' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="user.UserIdentityNo" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'First Name' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="user.UserFirstName" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Last Name' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="user.UserLastName" disabled>
                         </mat-form-field>
                     </div>
                 </div>
@@ -39,22 +48,19 @@
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Phone Number' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="user.UserPhone" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Email Address' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="user.UserEmail" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'User Type' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Institution Name' | translate }}"
-                                name="InstitutionName" disabled=true>
+                            <input matInput type="text" [(ngModel)]="user.UserStatusName" disabled=true>
                         </mat-form-field>
 
                     </div>
@@ -70,22 +76,19 @@
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Institution Name' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="institution.InstitutionName" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Email Address' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="institution.InstitutionEmail" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'Phone Number' | translate }}</mat-label>
-                            <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                name="UserPhone" disabled>
+                            <input matInput type="text" [(ngModel)]="institution.InstitutionPhone" disabled>
                         </mat-form-field>
                     </div>
                     <div class="form-group">
@@ -93,15 +96,13 @@
                             <div class="col-6">
                                 <mat-form-field appearance="outline">
                                     <mat-label>{{ 'City' | translate }}</mat-label>
-                                    <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                        name="UserPhone" disabled>
+                                    <input matInput type="text" [(ngModel)]="institution.InstitutionCity" disabled>
                                 </mat-form-field>
                             </div>
                             <div class="col-6">
                                 <mat-form-field appearance="outline">
                                     <mat-label>{{ 'District' | translate }}</mat-label>
-                                    <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
-                                        name="UserPhone" disabled>
+                                    <input matInput type="text" [(ngModel)]="institution.InstitutionDistrict" disabled>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -110,5 +111,4 @@
             </div>
         </div>
     </div>
-
 </mat-dialog-content>

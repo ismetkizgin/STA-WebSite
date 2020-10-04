@@ -16,14 +16,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import {
+  InstitutionInfoDialogComponent,
+  UserInfoDialogComponent,
+} from '../../';
+import {
   DashboardComponent,
   LoginComponent,
   AddUserComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
   UserListComponent,
-  UserInfoDialogComponent,
-  InstitutionInfoDialogComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,8 +46,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     InstitutionListComponent,
     UserListComponent,
     UserInfoDialogComponent,
-    InstitutionInfoDialogComponent
+    InstitutionInfoDialogComponent,
   ],
+  entryComponents: [UserInfoDialogComponent, InstitutionInfoDialogComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -65,4 +68,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule { }
+export class AdminLayoutModule {}
