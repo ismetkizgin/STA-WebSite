@@ -36,7 +36,7 @@ export class AddInstitutionComponent implements OnInit {
       try {
         this._model = (<any>(
           await this._institutionService.findAsync(InstitutionID)
-        ))[0];
+        ));
         this.getDistricts(this._model.InstitutionCity);
       } catch (error) {
         console.log(error);
