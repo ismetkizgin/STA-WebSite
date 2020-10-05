@@ -23,7 +23,7 @@
                         <ul class="nav nav-treeview">
                             <li *ngFor="let subItem of item.submenu" class="nav-item">
                                 <a [routerLink]="[subItem.link]" [routerLinkActive]="['active']" class="nav-link">
-                                    <i class="{{subItem.icon}}"></i>
+                                    <i class="nav-icon {{subItem.icon}}"></i>
                                     <p>{{ subItem.title | translate }}</p>
                                 </a>
                             </li>
