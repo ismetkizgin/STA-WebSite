@@ -14,6 +14,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogWindowComponent} from '../../../dialog-window/dialog-window.component';
+
 import {
   DashboardComponent,
   LoginComponent,
@@ -40,12 +43,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddInstitutionComponent,
     InstitutionListComponent,
     UserListComponent,
+    DialogWindowComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     MatSnackBarModule,
+    MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
