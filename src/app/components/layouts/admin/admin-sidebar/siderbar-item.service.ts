@@ -12,21 +12,23 @@ export class SidebarItemService {
   menu: Array<object> = [
     {
       title: 'Dashboard',
-      icon: 'fa-microchip',
+      icon: 'fa fa-tachometer-alt',
       link: '/admin'
     },
     {
       title: 'User Transactions',
-      icon: 'fa-user',
+      icon: 'fa fa-user',
       linkActive: ['/admin/users', '/admin/user/add'],
       submenuShowHide: this.getChildUrlActiveState(['user', 'users']),
       submenu: [
         {
           title: 'User List',
+          icon: 'fa fa-address-book',
           link: '/admin/users',
         },
         {
           title: 'User Add',
+          icon: 'fa fa-user-plus',
           link: '/admin/user/add',
         },
       ],
@@ -34,7 +36,7 @@ export class SidebarItemService {
     },
     {
       title: 'Institution Transactions',
-      icon: 'fa-user',
+      icon: 'fa fa-building',
       linkActive: ['/admin/institutions', '/admin/institution/add'],
       submenuShowHide: this.getChildUrlActiveState([
         'institution',
@@ -43,10 +45,12 @@ export class SidebarItemService {
       submenu: [
         {
           title: 'Institution List',
+          icon: 'fa fa-map',
           link: '/admin/institutions',
         },
         {
           title: 'Institution Add',
+          icon: 'fa fa-plus-square',
           link: '/admin/institution/add',
         },
       ],

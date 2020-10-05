@@ -32,14 +32,14 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent,
-        data: { title: 'Dashboard', icon: 'fa fa-2x fa-home' },
+        data: { title: 'Dashboard', icon: 'fa fa-2x fa-tachometer-alt' },
       },
       {
         path: 'user/add',
         component: AddUserComponent,
         data: {
           title: 'User Add',
-          icon: 'fa fa-2x fa-user',
+          icon: 'fa fa-2x fa-user-plus',
           authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
         },
       },
@@ -47,8 +47,8 @@ const routes: Routes = [
         path: 'user/edit/:UserID',
         component: AddUserComponent,
         data: {
-          title: 'User Add',
-          icon: 'fa fa-2x fa-user',
+          title: 'User Edit',
+          icon: 'fa fa-2x fa-user-edit',
           authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
         },
       },
@@ -57,7 +57,7 @@ const routes: Routes = [
         component: InstitutionListComponent,
         data: {
           title: 'Institution List',
-          icon: 'fa fa-2x fa-university',
+          icon: 'fa fa-2x fa-map',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -66,7 +66,7 @@ const routes: Routes = [
         component: AddInstitutionComponent,
         data: {
           title: 'Institution Add',
-          icon: 'fa fa-2x fa-university',
+          icon: 'fa fa-2x fa-plus-square',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -75,7 +75,7 @@ const routes: Routes = [
         component: AddInstitutionComponent,
         data: {
           title: 'Institution Edit',
-          icon: 'fa fa-2x fa-university',
+          icon: 'fa fa-2x fa-edit',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -84,7 +84,7 @@ const routes: Routes = [
         component: UserListComponent,
         data: {
           title: 'User List',
-          icon: 'fa fa-2x fa-users',
+          icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
         },
       },
