@@ -1,22 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-window',
   templateUrl: './dialog-window.component.html',
   styleUrls: ['./dialog-window.component.scss'],
-  encapsulation: ViewEncapsulation.None 
+  encapsulation: ViewEncapsulation.None,
 })
 export class DialogWindowComponent implements OnInit {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  constructor(private _dialog: MatDialog) { }
-
-  async closeDialogButton() {
-    this._dialog.closeAll();
-  }
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

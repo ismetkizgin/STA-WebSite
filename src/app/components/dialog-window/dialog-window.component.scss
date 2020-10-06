@@ -1,48 +1,48 @@
-/* mat-confirm-dialog (customised dialog) */
+.mat-dialog-container {
+  padding: 0 !important;
+  width: 350px;
+}
 
- .mat-dialog-container {
-    padding:0!important;
-    width: 350px;
+.content-container {
+  color: #8f9cb5;
+  display: flex;
+}
+
+.close-icon {
+  margin-left: auto;
+  order: 2;
+  font-weight: bolder;
+
+  &:hover {
+    cursor: pointer;
   }
-.content-container{
-    color: #8f9cb5;
-    display: flex;
-  }
- #close-icon{
-    margin-left: auto;
-    order: 2;
-    font-weight: bolder;
-  }
-#close-icon:hover{
-  cursor: pointer;
-  }
-  
-#no-button{
+}
+
+.warning-button {
   height: 50px;
   width: 50%;
-  background-color: #b6bece;
-  color:white;
   border-radius: 0px;
-  border:none;
-  outline: none;;
-  }
-#yes-button{
-    height: 50px;
-    width: 50%;
-    outline: none;
+  color: white;
+  border: none;
+  outline: none;
+
+  &__yes {
     background-color: #fc7169;
-    color:white;
-    border-radius: 0px;
-    border:none;
   }
-  
-span.content-span{
-    padding:  35px 16px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
+
+  &__no {
+    background-color: #b6bece;
   }
-  i.imargin{
-    margin-top: auto;
-    margin-bottom: auto;
-  }
+}
+
+span.content-span {
+  padding: 35px 16px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+i.imargin {
+  margin-top: auto;
+  margin-bottom: auto;
+}

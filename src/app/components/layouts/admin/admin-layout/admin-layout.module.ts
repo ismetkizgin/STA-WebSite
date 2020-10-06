@@ -36,23 +36,19 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AdminLayoutComponent,
-    DashboardComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
+    DashboardComponent,
     LoginComponent,
     AddUserComponent,
     AddInstitutionComponent,
     InstitutionListComponent,
     UserListComponent,
-    UserInfoDialogComponent,
-    InstitutionInfoDialogComponent,
-  ],
-  entryComponents: [
-    UserInfoDialogComponent,
-    InstitutionInfoDialogComponent,
     DialogWindowComponent,
+    InstitutionInfoDialogComponent,
+    UserInfoDialogComponent,
   ],
   imports: [
     CommonModule,
