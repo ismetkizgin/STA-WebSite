@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {
   InstitutionInfoDialogComponent,
   UserInfoDialogComponent,
+  DialogWindowComponent,
 } from '../../';
 import {
   DashboardComponent,
@@ -35,25 +36,26 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AdminLayoutComponent,
-    DashboardComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
+    DashboardComponent,
     LoginComponent,
     AddUserComponent,
     AddInstitutionComponent,
     InstitutionListComponent,
     UserListComponent,
-    UserInfoDialogComponent,
+    DialogWindowComponent,
     InstitutionInfoDialogComponent,
+    UserInfoDialogComponent,
   ],
-  entryComponents: [UserInfoDialogComponent, InstitutionInfoDialogComponent],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     MatSnackBarModule,
+    MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,

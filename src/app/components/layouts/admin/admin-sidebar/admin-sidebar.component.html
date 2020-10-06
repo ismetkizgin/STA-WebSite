@@ -14,7 +14,7 @@
                     
                     <ng-template #dropdownItem>
                         <a (click)="toggle(indis)" [class.active]="isActive(item.linkActive)" class="nav-link">
-                            <i class="nav-icon fa {{ item.icon }}"></i>
+                            <i class="nav-icon {{ item.icon }}"></i>
                             <p>
                                 {{ item.title | translate }}
                                 <i class="right fa fa-angle-left"></i>
@@ -23,7 +23,7 @@
                         <ul class="nav nav-treeview">
                             <li *ngFor="let subItem of item.submenu" class="nav-item">
                                 <a [routerLink]="[subItem.link]" [routerLinkActive]="['active']" class="nav-link">
-                                    <i class="fa fa-circle nav-icon"></i>
+                                    <i class="nav-icon {{subItem.icon}}"></i>
                                     <p>{{ subItem.title | translate }}</p>
                                 </a>
                             </li>
@@ -32,7 +32,7 @@
 
                     <ng-template #singleItem>
                         <a [routerLink]="[item.link]" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
-                            <i class="nav-icon fa fa-copy"></i>
+                            <i class="nav-icon {{item.icon}}"></i>
                             <p>{{ item.title | translate }}</p>
                         </a>
                     </ng-template>

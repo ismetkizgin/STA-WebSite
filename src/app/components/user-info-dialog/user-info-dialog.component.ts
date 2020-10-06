@@ -18,7 +18,6 @@ export class UserInfoDialogComponent implements OnInit {
   institution: Institution = new Institution();
 
   async ngOnInit() {
-    console.log(this.data);
     this.user = <User>await this._userService.findAsync(this.data.UserID);
     this.institution = <Institution>(
       await this._institutionService.findAsync(this.user.InstitutionID)
