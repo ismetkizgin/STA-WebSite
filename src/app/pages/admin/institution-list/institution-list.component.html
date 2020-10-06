@@ -20,11 +20,14 @@
                     <td>{{ Institution.InstitutionPhone }}</td>
                     <td>{{ Institution.InstitutionCity }}/{{Institution.InstitutionDistrict}}</td>
                     <td class="list-button text-right">
-                        <a class="btn btn-primary btn-sm ml-1" href="#">
+                        <a (click)="examineOpenDialog(Institution.InstitutionID)"
+                            class="btn btn-primary btn-sm ml-1 text-light">
                             <i class="fas fa-folder"></i> {{ 'Examine' | translate }}</a>
-                        <a class="btn btn-info btn-sm ml-1" href="admin/institution/edit/{{ Institution.InstitutionID }}">
+                        <a class="btn btn-info btn-sm ml-1"
+                            [routerLink]="['/admin/institution/edit/',Institution.InstitutionID]">
                             <i class="fas fa-pencil-alt"></i> {{ 'Edit' | translate }}</a>
-                        <a (click)="onInstitutionDelete(Institution.InstitutionID)" class="btn btn-danger btn-sm ml-1">
+                        <a (click)="onInstitutionDelete(Institution.InstitutionID)"
+                            class="btn btn-danger btn-sm ml-1  text-light">
                             <i class="fas fa-trash"></i> {{ 'Delete' | translate }}</a>
                     </td>
                 </tr>

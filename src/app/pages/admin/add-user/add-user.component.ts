@@ -30,7 +30,7 @@ export class AddUserComponent implements OnInit {
   _action: Function;
   _model: UserModel = new UserModel();
   _passwordShowHide: boolean = false;
-  institutions: Array<any>;
+  institutions: Array<object>;
   _UserStatusName = this._authService.currentUserValue.result.UserStatusName;
   userRoles: Array<object> = [
     {
@@ -58,7 +58,11 @@ export class AddUserComponent implements OnInit {
 
   async ngOnInit() {
     const UserID = this._activatedRoute.snapshot.paramMap.get('UserID');
-    this.institutions = Array<any>(await this._institutionService.listAsync());
+    this.institutions = <Array<object>>(
+      await this._institutionService.listAsync()
+    );
+    console.log(this.institutions);
+    console.log('deneme');
     if (UserID != null) {
       try {
         this._model = <any>await this._userService.findAsync(UserID);

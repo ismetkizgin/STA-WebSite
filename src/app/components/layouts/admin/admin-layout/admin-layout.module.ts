@@ -15,8 +15,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogWindowComponent} from '../../../dialog-window/dialog-window.component';
-
+import {
+  InstitutionInfoDialogComponent,
+  UserInfoDialogComponent,
+  DialogWindowComponent,
+} from '../../';
 import {
   DashboardComponent,
   LoginComponent,
@@ -43,7 +46,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddInstitutionComponent,
     InstitutionListComponent,
     UserListComponent,
-    DialogWindowComponent
+    UserInfoDialogComponent,
+    InstitutionInfoDialogComponent,
+  ],
+  entryComponents: [
+    UserInfoDialogComponent,
+    InstitutionInfoDialogComponent,
+    DialogWindowComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
