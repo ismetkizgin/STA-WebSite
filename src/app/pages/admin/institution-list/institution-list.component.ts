@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { InstitutionInfoDialogComponent } from '../../../components';
+import { MartyrInfoDialogComponent } from 'src/app/components/martyr-info-dialog/martyr-info-dialog.component';
 
 @Component({
   selector: 'app-institution-list',
@@ -23,6 +24,9 @@ export class InstitutionListComponent implements OnInit {
 
   async ngOnInit() {
     this.data = <Institution[]>await this._institutionService.listAsync();
+  }
+  openMartyrDialog(){
+    this._dialog.open(MartyrInfoDialogComponent);
   }
 
   async onInstitutionDelete(InstitutionID) {

@@ -15,10 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import {
-  InstitutionInfoDialogComponent,
-  UserInfoDialogComponent,
-} from '../../';
+import {InstitutionInfoDialogComponent,UserInfoDialogComponent,MartyrInfoDialogComponent} from '../../';
 import {
   DashboardComponent,
   LoginComponent,
@@ -47,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserListComponent,
     UserInfoDialogComponent,
     InstitutionInfoDialogComponent,
+    MartyrInfoDialogComponent
   ],
   entryComponents: [UserInfoDialogComponent, InstitutionInfoDialogComponent],
   imports: [
