@@ -61,13 +61,10 @@ export class AddUserComponent implements OnInit {
     this.institutions = <Array<object>>(
       await this._institutionService.listAsync()
     );
-    console.log(this.institutions);
-    console.log('deneme');
     if (UserID != null) {
       try {
         this._model = <any>await this._userService.findAsync(UserID);
       } catch (error) {
-        console.log(error);
         switch (error.status) {
           case 404:
             this._router.navigateByUrl('admin');
