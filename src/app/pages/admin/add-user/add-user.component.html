@@ -77,7 +77,7 @@
                                     {{ institution.InstitutionName }}</option>
                             </select>
                             <mat-error *ngIf="InstitutionID.invalid&&InstitutionID.touched">
-                                {{ 'Select the district where the institution is located' | translate }}</mat-error>
+                                {{ 'Select the institution where the user is located' | translate }}</mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                                             {{ userRole.userStatusName | translate }}</option>
                                     </select>
                                     <mat-error *ngIf="UserStatusName.invalid&&UserStatusName.touched">
-                                        {{ 'Select the district where the institution is located' | translate }}
+                                        {{ 'Choose the type of user' | translate }}
                                     </mat-error>
                                 </mat-form-field>
                             </div>
@@ -126,7 +126,7 @@
                                             {{ 'Password cannot be shorter than 6 characters' | translate }}</mat-error>
                                         <mat-error
                                             *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.required">
-                                            {{ 'Email adress field must be filled' | translate }}</mat-error>
+                                            {{ 'Password field must be filled' | translate }}</mat-error>
                                     </mat-form-field>
                                 </div>
                             </div>
