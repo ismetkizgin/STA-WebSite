@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgSearchFilterModule } from 'ng-search-filter';
 import {
   InstitutionInfoDialogComponent,
   UserInfoDialogComponent,
@@ -58,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    NgSearchFilterModule,
     MatIconModule,
     MatDialogModule,
     TranslateModule.forRoot({

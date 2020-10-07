@@ -11,4 +11,6 @@ export class User {
   UserFirstName: string;
   UserLastName: string;
   UserStatusName: string;
+  UserPhone: string;
+  UserEmail: string;
 }

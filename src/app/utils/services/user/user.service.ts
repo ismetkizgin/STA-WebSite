@@ -5,7 +5,7 @@ import { ApiFetchService } from '../api-fetch/api-fetch.service';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private _apiFetchService: ApiFetchService) {}
+  constructor(private _apiFetchService: ApiFetchService) { }
 
   async listAsync() {
     return await this._apiFetchService.requestAsync('GET', 'user', null, true);
@@ -43,6 +43,15 @@ export class UserService {
       'PUT',
       'user',
       values,
+      true
+    );
+  }
+
+  async institutionPersonnelList(institutionID) {
+    return await this._apiFetchService.requestAsync(
+      'GET',
+      `user/institution/${institutionID}`,
+      null,
       true
     );
   }
