@@ -20,6 +20,7 @@ export class InstitutionListComponent implements OnInit {
   ) {}
 
   data: Institution[];
+  searchText: string;
 
   async ngOnInit() {
     this.data = <Institution[]>await this._institutionService.listAsync();
@@ -90,5 +91,9 @@ export class InstitutionListComponent implements OnInit {
       width: '90%',
       data: { InstitutionID },
     });
+  }
+
+  x(){
+    this.searchText = this.searchText.toLocaleLowerCase('tr');
   }
 }

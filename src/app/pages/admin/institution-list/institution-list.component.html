@@ -2,13 +2,14 @@
     <div class="col-md-3 col-sm-12 ml-auto ">
         <mat-form-field>
             <mat-label>{{ 'Search' | translate }}</mat-label>
-            <input matInput type="text" placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchWord"
-                minlength="6">
+            <input matInput type="text" (keyup)="x()" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
             <a type="button" matSuffix [attr.aria-label]="'Search'">
                 <mat-icon>search</mat-icon>
             </a>
         </mat-form-field>
     </div>
+    {{ searchText }}
 </div>
 <div class="card">
     <div class="card-body table-responsive p-0">
@@ -25,12 +26,12 @@
             </thead>
             <tbody>
 
-                <tr *ngFor="let Institution of data">
+                <tr *ngFor="let Institution of data | filter:searchText">
                     <td>{{ Institution.InstitutionID }}</td>
                     <td>{{ Institution.InstitutionName }}</td>
                     <td>{{ Institution.InstitutionEmail }}</td>
                     <td>{{ Institution.InstitutionPhone }}</td>
-                    <td>{{ Institution.InstitutionCity }}/{{Institution.InstitutionDistrict}}</td>
+                    <td>{{ Institution.InstitutionCity }} / {{Institution.InstitutionDistrict}}</td>
                     <td class="list-button text-right">
                         <a (click)="examineOpenDialog(Institution.InstitutionID)"
                             class="btn btn-primary btn-sm ml-1 text-light">

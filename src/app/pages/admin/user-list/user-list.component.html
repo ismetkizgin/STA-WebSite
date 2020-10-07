@@ -2,8 +2,8 @@
     <div class="col-md-3 col-sm-12 ml-auto ">
         <mat-form-field>
             <mat-label>{{ 'Search' | translate }}</mat-label>
-            <input matInput type="text" placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchingWord"
-                minlength="6">
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
             <a type="button" matSuffix [attr.aria-label]="'Search'">
                 <mat-icon>search</mat-icon>
             </a>
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of data">
+                <tr *ngFor="let user of data | filter:searchText">
                     <td>{{ user.UserID }}</td>
                     <td>{{ user.UserFirstName }} {{ user.UserLastName }}</td>
                     <td>{{ user.InstitutionName }}</td>

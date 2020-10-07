@@ -23,6 +23,7 @@ export class UserListComponent implements OnInit {
   ) {}
 
   data: User[];
+  searchText: string;
 
   async ngOnInit() {
     this.data = <User[]>await this._userService.listAsync();
@@ -87,7 +88,7 @@ export class UserListComponent implements OnInit {
       }
     });
   }
-  
+
   examineOpenDialog(UserID) {
     this._dialog.open(UserInfoDialogComponent, {
       width: '90%',
