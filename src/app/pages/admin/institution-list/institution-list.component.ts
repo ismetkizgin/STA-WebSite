@@ -33,7 +33,7 @@ export class InstitutionListComponent implements OnInit {
     };
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
-        message: 'Are you sure you want to delete the user ?',
+        message: 'Are you sure you want to delete the institution ?',
         icon: 'fa fa-exclamation',
       },
     });
@@ -91,9 +91,5 @@ export class InstitutionListComponent implements OnInit {
       width: '90%',
       data: { InstitutionID },
     });
-  }
-
-  x(){
-    this.searchText = this.searchText.toLocaleLowerCase('tr');
   }
 }

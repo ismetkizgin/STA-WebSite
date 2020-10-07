@@ -70,3 +70,13 @@ $my-app-theme: mat-light-theme(
 .mat-form-field {
   width: 100%;
 }
+
+.list-menu {
+  background-color: rgb(140, 140, 140, 0.2);
+  border-radius: 4em;
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+  }
+}

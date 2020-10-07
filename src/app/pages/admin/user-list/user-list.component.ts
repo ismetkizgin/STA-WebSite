@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit {
     };
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
-        message: 'Are you sure you want to delete the institution ?',
+        message: 'Are you sure you want to delete the user ?',
         icon: 'fa fa-exclamation',
       },
     });
