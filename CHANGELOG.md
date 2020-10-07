@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.3.0 (2020-10-07)
+
+
+### Features
+
+* added search bar in user and institution list page ([9938605](https://github.com/ismetkizgin/STA-WebSite/commit/99386055131cfffe3009bc92b957aab995aa9a93))
+* added windows dialog component ([37fd0ce](https://github.com/ismetkizgin/STA-WebSite/commit/37fd0cee741149f278373820a23574739638953a))
+* service links of the user form have been created ([df42673](https://github.com/ismetkizgin/STA-WebSite/commit/df426734990f238da3588656007f9b36eb091205))
+
+
 ## 1.2.0 (2020-10-02)
 
 
