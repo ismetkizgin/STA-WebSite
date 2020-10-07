@@ -73,6 +73,8 @@
   "User registration is complete": "Kullanıcı kaydı tamamlandı.",
   "YES": "EVET",
   "home": "Anasayfa",
+  "Home": "Anasayfa",
+  "Sign out": "Çıkış yap",
   "Are you sure you want to delete the user ?": "Kullanıcıyı silmek istediğinizden emin misiniz ?",
   "Are you sure you want to delete the institution ?": "Kurumu silmek istediğinizden emin misiniz ?",
   "Dashboard": "Gösterge Paneli",
@@ -81,5 +83,8 @@
   "User Add": "Kullanıcı Ekle",
   "Institution Transactions": "Kurum İşlemleri",
   "Institution List": "Kurum Listesi",
-  "Institution Add": "Kurum Ekle"
+  "Institution Add": "Kurum Ekle",
+  "Administrator": "Yönetici",
+  "Institution Admin": "Kurum Yöneticisi",
+  "Editor": "Editör"
 }

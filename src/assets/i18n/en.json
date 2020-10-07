@@ -73,6 +73,8 @@
   "User registration is complete": "User registration is complete.",
   "YES": "YES",
   "home": "home",
+  "Home": "Home",
+  "Sign out": "Sign out",
   "Are you sure you want to delete the user ?": "Are you sure you want to delete the user ?",
   "Are you sure you want to delete the institution ?": "Are you sure you want to delete the institution ?",
   "Dashboard": "Dashboard",
@@ -81,5 +83,8 @@
   "User Add": "User Add",
   "Institution Transactions": "Institution Transactions",
   "Institution List": "Institution List",
-  "Institution Add": "Institution Add"
+  "Institution Add": "Institution Add",
+  "Administrator": "Administrator",
+  "Institution Admin": "Institution Admin",
+  "Editor": "Editor"
 }

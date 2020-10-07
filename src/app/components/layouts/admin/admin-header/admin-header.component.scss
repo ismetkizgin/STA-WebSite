@@ -1,3 +1,9 @@
 .main-header {
   z-index: 998;
 }
+
+.lang {
+  &__selection {
+    cursor: pointer;
+  }
+}

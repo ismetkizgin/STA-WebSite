@@ -156,4 +156,9 @@ export class AuthService {
     }
     return passwordArray.join('');
   }
+
+  async logout() {
+    localStorage.removeItem('currentUser');
+    this._router.navigate(['login']);
+  }
 }
