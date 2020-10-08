@@ -75,6 +75,8 @@
   "home": "home",
   "Home": "Home",
   "Sign out": "Sign out",
+  "Such a user is not registered in the system !": "Such a user is not registered in the system !",
+  "Such a institution is not registered in the system !": "Such a institution is not registered in the system !",
   "Are you sure you want to delete the user ?": "Are you sure you want to delete the user ?",
   "Are you sure you want to delete the institution ?": "Are you sure you want to delete the institution ?",
   "Dashboard": "Dashboard",

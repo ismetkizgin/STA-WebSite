@@ -75,6 +75,8 @@
   "home": "Anasayfa",
   "Home": "Anasayfa",
   "Sign out": "Çıkış yap",
+  "Such a user is not registered in the system !": "Böyle bir kullanıcı sisteme kayıtlı değil !",
+  "Such a institution is not registered in the system !": "Böyle bir kurum sisteme kayıtlı değil !",
   "Are you sure you want to delete the user ?": "Kullanıcıyı silmek istediğinizden emin misiniz ?",
   "Are you sure you want to delete the institution ?": "Kurumu silmek istediğinizden emin misiniz ?",
   "Dashboard": "Gösterge Paneli",
