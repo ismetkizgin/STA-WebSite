@@ -3,6 +3,10 @@
 }
 
 .lang {
+    position: relative;
+    width: 30px;
+    height: 20px;
+
   &__selection {
     cursor: pointer;
   }
