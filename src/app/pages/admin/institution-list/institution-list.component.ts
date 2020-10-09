@@ -25,10 +25,6 @@ export class InstitutionListComponent implements OnInit {
   async ngOnInit() {
     this.data = <Institution[]>await this._institutionService.listAsync();
   }
-  openMartyrDialog(){
-    this._dialog.open(MartyrInfoDialogComponent);
-  }
-
   async onInstitutionDelete(InstitutionID) {
     let notification: any = {
       message: '',

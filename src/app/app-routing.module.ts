@@ -15,6 +15,7 @@ import {
   AddUserComponent,
   AddInstitutionComponent,
   UserListComponent,
+  MartyrInfoComponent
 } from './pages';
 
 const routes: Routes = [
@@ -29,6 +30,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
+      {
+        path: 'martyr/info',
+        component: MartyrInfoComponent,
+        data: { title: 'Martyr Information', icon: 'fa fa-2x fa-tachometer-alt' },
+      },
       {
         path: '',
         component: DashboardComponent,

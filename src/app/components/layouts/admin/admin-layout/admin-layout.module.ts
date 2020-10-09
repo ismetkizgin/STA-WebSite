@@ -23,6 +23,7 @@ import {
   AddInstitutionComponent,
   InstitutionListComponent,
   UserListComponent,
+  MartyrInfoComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserListComponent,
     UserInfoDialogComponent,
     InstitutionInfoDialogComponent,
-    MartyrInfoDialogComponent
+    MartyrInfoDialogComponent,
+    MartyrInfoComponent
   ],
   entryComponents: [UserInfoDialogComponent, InstitutionInfoDialogComponent],
   imports: [
