@@ -1,0 +1,12 @@
+.banner {
+  &__title {
+    font-family: Monotype Corsiva;
+    word-spacing: 5px;
+  }
+
+  display:block;
+
+  @media screen and (min-width: 0px) and (max-width: 900px) {
+    display: none;
+  }
+}
