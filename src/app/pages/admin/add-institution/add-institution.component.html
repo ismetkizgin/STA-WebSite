@@ -1,4 +1,4 @@
-<form #institutionRegistrationForm='ngForm' (ngSubmit)="onSave(institutionRegistrationForm)">
+<form #institutionForm='ngForm' (ngSubmit)="onSave(institutionForm)">
   <div class="card card-outline card-info">
     <div class="card-body">
       <div class="row">
@@ -7,7 +7,8 @@
             <mat-form-field appearance="outline">
               <mat-label>{{'Institution Name'|translate}}</mat-label>
               <input matInput type="text" placeholder="{{'Enter Institution Name'|translate}}" name="InstitutionName"
-                #InstitutionName="ngModel" [(ngModel)]="_model.InstitutionName" required>
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" #InstitutionName="ngModel" [(ngModel)]="_model.InstitutionName"
+                required>
               <mat-error *ngIf="InstitutionName.invalid&&InstitutionName.touched">
                 {{ 'Institution Name field must be filled' | translate }}</mat-error>
             </mat-form-field>
@@ -16,7 +17,7 @@
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Phone Number' | translate }}</mat-label>
               <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}" name="InstitutionPhone"
-                #InstitutionPhone="ngModel" [(ngModel)]="_model.InstitutionPhone" required>
+                pattern="[0-9]{11}" #InstitutionPhone="ngModel" [(ngModel)]="_model.InstitutionPhone" required>
               <mat-error *ngIf="InstitutionPhone.invalid&&InstitutionPhone.touched">
                 {{ 'Phone number field must be filled' | translate }}</mat-error>
             </mat-form-field>
@@ -25,7 +26,8 @@
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Email Address' | translate }}</mat-label>
               <input matInput type="email" placeholder="{{ 'Enter Email Address' | translate }}" name="InstitutionEmail"
-                #InstitutionEmail="ngModel" [(ngModel)]="_model.InstitutionEmail" required>
+                pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" #InstitutionEmail="ngModel"
+                [(ngModel)]="_model.InstitutionEmail" required>
               <mat-error *ngIf="InstitutionEmail.invalid&&InstitutionEmail.touched">
                 {{ 'Email adress field must be filled' | translate }}</mat-error>
             </mat-form-field>
@@ -48,8 +50,8 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{'District'| translate}}</mat-label>
-              <select matNativeControl name="InstitutionDistrict" #InstitutionDistrict="ngModel" ng-model="districtSelect"
-                [(ngModel)]="_model.InstitutionDistrict" required>
+              <select matNativeControl name="InstitutionDistrict" #InstitutionDistrict="ngModel"
+                ng-model="districtSelect" [(ngModel)]="_model.InstitutionDistrict" required>
                 <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
               </select>
               <mat-error *ngIf="InstitutionDistrict.invalid&&InstitutionDistrict.touched">

@@ -3,17 +3,32 @@ import { ApiFetchService } from '../api-fetch/api-fetch.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
+
   constructor(
     private _apiFetchService: ApiFetchService,
     private _router: Router,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService
-  ) {}
+  ) {
+    this.currentUserSubject = new BehaviorSubject<any>(
+      JSON.parse(localStorage.getItem('currentUser'))
+    );
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue() {
+    return this.currentUserSubject.value;
+  }
 
   async login(user) {
     try {
@@ -22,9 +37,12 @@ export class AuthService {
         'login',
         user
       );
-      localStorage.setItem('token', respone.token);
-      localStorage.setItem('userInformation', respone.result);
-      this._router.navigateByUrl('admin');
+      if (respone.result) {
+        localStorage.setItem('currentUser', JSON.stringify(respone));
+        this.currentUserSubject.next(respone);
+        this._router.navigateByUrl('admin');
+      }
+      return respone;
     } catch (error) {
       let errorMessage: string;
       switch (error.status) {
@@ -55,14 +73,13 @@ export class AuthService {
 
   async tokenDecode() {
     try {
-      if (localStorage.getItem('token') != null) {
-        const response: any = await this._apiFetchService.requestAsync(
+      if (this.currentUserValue) {
+        return await this._apiFetchService.requestAsync(
           'GET',
           'token-decode',
           null,
           true
         );
-        return response;
       }
       return false;
     } catch (error) {
@@ -71,9 +88,63 @@ export class AuthService {
   }
 
   creatingPassword(passwordLength) {
-    var lowerCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    var upperCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    var numbers = ['0','1','2','3','4','5','6','7','8','9'];
+    var lowerCharacters = [
+      'a',
+      'b',
+      'c',
+      'd',
+      'e',
+      'f',
+      'g',
+      'h',
+      'i',
+      'j',
+      'k',
+      'l',
+      'm',
+      'n',
+      'o',
+      'p',
+      'q',
+      'r',
+      's',
+      't',
+      'u',
+      'v',
+      'w',
+      'x',
+      'y',
+      'z',
+    ];
+    var upperCharacters = [
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+      'G',
+      'H',
+      'I',
+      'J',
+      'K',
+      'L',
+      'M',
+      'N',
+      'O',
+      'P',
+      'Q',
+      'R',
+      'S',
+      'T',
+      'U',
+      'V',
+      'W',
+      'X',
+      'Y',
+      'Z',
+    ];
+    var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     var finalCharacters = lowerCharacters;
     finalCharacters = finalCharacters.concat(upperCharacters);
     finalCharacters = finalCharacters.concat(numbers);
@@ -84,5 +155,10 @@ export class AuthService {
       );
     }
     return passwordArray.join('');
+  }
+
+  async logout() {
+    localStorage.removeItem('currentUser');
+    this._router.navigate(['login']);
   }
 }

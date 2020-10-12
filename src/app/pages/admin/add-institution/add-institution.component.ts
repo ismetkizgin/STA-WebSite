@@ -34,20 +34,13 @@ export class AddInstitutionComponent implements OnInit {
     );
     if (InstitutionID != null) {
       try {
-        this._model = (<any>(
+        this._model = <any>(
           await this._institutionService.findAsync(InstitutionID)
-        ))[0];
+        );
         this.getDistricts(this._model.InstitutionCity);
       } catch (error) {
-        console.log(error);
-        switch (error.status) {
-          case 404:
-            this._router.navigateByUrl('admin');
-            break;
-          default:
-            this._router.navigateByUrl('admin');
-            break;
-        }
+        this.errorNotification(error);
+        this._router.navigateByUrl('admin');
       }
       this._action = this.updateActionAsync;
     } else {
@@ -55,18 +48,18 @@ export class AddInstitutionComponent implements OnInit {
     }
   }
 
-  async onSave(signUpForm: NgForm) {
+  async onSave(institutionForm: NgForm) {
     let notification: any = {
       message: '',
       panelClass: '',
     };
 
-    if (signUpForm.valid) {
+    if (institutionForm.valid) {
       this._translateService
-        .get('User registration is complete')
+        .get('Institution registration is complete')
         .subscribe((value) => (notification.message = value));
       notification.panelClass = 'notification__success';
-      if (!(await this._action(signUpForm))) return;
+      if (!(await this._action(institutionForm))) return;
     } else {
       this._translateService
         .get('Please fill in the required fields')
@@ -92,10 +85,10 @@ export class AddInstitutionComponent implements OnInit {
       this._model.InstitutionDistrict = '';
   }
 
-  async insertActionAsync(signUpForm: NgForm) {
+  async insertActionAsync(institutionForm: NgForm) {
     try {
-      await this._institutionService.insertAsync(signUpForm.value);
-      signUpForm.resetForm();
+      await this._institutionService.insertAsync(institutionForm.value);
+      institutionForm.resetForm();
       return true;
     } catch (error) {
       this.errorNotification(error);
@@ -103,10 +96,10 @@ export class AddInstitutionComponent implements OnInit {
     }
   }
 
-  async updateActionAsync(signUpForm: NgForm) {
+  async updateActionAsync(institutionForm: NgForm) {
     try {
       await this._institutionService.updateAsync(
-        Object.assign(signUpForm.value, {
+        Object.assign(institutionForm.value, {
           InstitutionID: parseInt(
             this._activatedRoute.snapshot.paramMap.get('InstitutionID')
           ),
@@ -137,6 +130,11 @@ export class AddInstitutionComponent implements OnInit {
           .get('Please enter correct institution information !')
           .subscribe((value) => (errorMessage = value));
         break;
+      case 404:
+        this._translateService
+          .get('Such a institution is not registered in the system !')
+          .subscribe((value) => (errorMessage = value));
+        break;
       default:
         this._translateService
           .get(
@@ -146,7 +144,7 @@ export class AddInstitutionComponent implements OnInit {
         break;
     }
     this._snackBar.open(errorMessage, 'X', {
-      duration: 3000,
+      duration: 4000,
       panelClass: 'notification__error',
       verticalPosition: 'bottom',
       horizontalPosition: 'right',

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './utils/guards';
+import { Roles } from './models/roles';
+
 import {
   ClientLayoutComponent,
   AdminLayoutComponent,
@@ -10,9 +12,10 @@ import {
   DashboardComponent,
   LoginComponent,
   InstitutionListComponent,
-  SignUpComponent,
+  AddUserComponent,
   AddInstitutionComponent,
-  MartyrListComponent
+  MartyrListComponent,
+  UserListComponent,
 } from './pages';
 
 const routes: Routes = [
@@ -25,31 +28,66 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
         component: DashboardComponent,
-        data: { title: 'Dashboard', icon: 'fa fa-3x fa-home' },
+        data: { title: 'Dashboard', icon: 'fa fa-2x fa-tachometer-alt' },
       },
       {
-        path: 'sign-up',
-        component: SignUpComponent,
-        data: { title: 'Sign Up', icon: 'fa fa-3x fa-user' },
+        path: 'user/add',
+        component: AddUserComponent,
+        data: {
+          title: 'User Add',
+          icon: 'fa fa-2x fa-user-plus',
+          authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
+        },
+      },
+      {
+        path: 'user/edit/:UserID',
+        component: AddUserComponent,
+        data: {
+          title: 'User Edit',
+          icon: 'fa fa-2x fa-user-edit',
+          authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
+        },
       },
       {
         path: 'institutions',
         component: InstitutionListComponent,
-        data: { title: 'Institution List', icon: 'fa fa-3x fa-university' },
+        data: {
+          title: 'Institution List',
+          icon: 'fa fa-2x fa-map',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
       },
       {
         path: 'institution/add',
         component: AddInstitutionComponent,
-        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+        data: {
+          title: 'Institution Add',
+          icon: 'fa fa-2x fa-plus-square',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
       },
       {
         path: 'institution/edit/:InstitutionID',
         component: AddInstitutionComponent,
-        data: { title: 'Add Institution', icon: 'fa fa-3x fa-university' },
+        data: {
+          title: 'Institution Edit',
+          icon: 'fa fa-2x fa-edit',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'users',
+        component: UserListComponent,
+        data: {
+          title: 'User List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
+        },
       },
       {
         path: 'martyrs',
@@ -65,5 +103,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 export const routingComponents = [];

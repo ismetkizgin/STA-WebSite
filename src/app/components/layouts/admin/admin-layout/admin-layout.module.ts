@@ -14,14 +14,22 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { NgSearchFilterModule } from 'ng-search-filter';
+import {
+  InstitutionInfoDialogComponent,
+  UserInfoDialogComponent,
+  DialogWindowComponent,
+} from '../../';
 import {
   DashboardComponent,
   LoginComponent,
-  SignUpComponent,
+  AddUserComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
-  MartyrListComponent
+  MartyrListComponent,
+  UserListComponent,
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,26 +39,33 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AdminLayoutComponent,
-    DashboardComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
+    DashboardComponent,
     LoginComponent,
-    SignUpComponent,
+    AddUserComponent,
     AddInstitutionComponent,
     InstitutionListComponent,
-    MartyrListComponent
+    MartyrListComponent,
+    UserListComponent,
+    DialogWindowComponent,
+    InstitutionInfoDialogComponent,
+    UserInfoDialogComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     MatSnackBarModule,
+    MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule,
     MatMenuModule,
+    NgSearchFilterModule,
+    MatIconModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
