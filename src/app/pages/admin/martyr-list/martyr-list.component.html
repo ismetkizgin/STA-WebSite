@@ -13,13 +13,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let martry of data">
-                    <td>{{ martry.MartyrID }}</td>
-                    <td>{{ martry.MartyrFirstName }} {{ martry.MartyrLastName }}</td>
-                    <td>{{ martry.MartyrCity }} {{ martry.MartyrDistrict }}</td>
-                    <td>{{ martry.RankID }}</td>
-                    <td>{{ martry.InstitutionName }}</td>
-                    <td>{{ martry.InstitutionID }}</td>
+                <tr *ngFor="let martyr of martyrs">
+                    <td>{{ martyr.MartyrID }}</td>
+                    <td>{{ martyr.MartyrFirstName }} {{ martyr.MartyrLastName }}</td>
+                    <td>{{ martyr.MartyrCity }} {{ martyr.MartyrDistrict }}</td>
+                    <td>{{ martyr.RankID }}</td>
+                    <td>{{ martyr.InstitutionName }}</td>
+                    <td>{{ martyr.InstitutionID }}</td>
                     <td>
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
@@ -37,7 +37,7 @@
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
-                            <a mat-menu-item>
+                            <a mat-menu-item (click)="martyrDelete(martyr.MartyrID)">
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>
