@@ -1,4 +1,4 @@
-export class SignUpModel {
+export class UserModel {
   UserIdentityNo: bigint;
   UserFirstName: string;
   UserLastName: string;
@@ -6,4 +6,6 @@ export class SignUpModel {
   UserEmail: string;
   UserAdress: string;
   UserPassword: string;
+  InstitutionID: number;
+  UserStatusName: string;
 }

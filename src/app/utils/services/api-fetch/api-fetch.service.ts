@@ -19,7 +19,7 @@ export class ApiFetchService {
       if (data != null) Object.assign(config, { body: data });
       if (getToken)
         Object.assign(config, {
-          headers: { token: localStorage.getItem('token') },
+          headers: { token: JSON.parse(localStorage.getItem('currentUser')).token },
         });
 
       this._http

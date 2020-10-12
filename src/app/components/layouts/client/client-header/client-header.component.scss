@@ -1,0 +1,24 @@
+.navbar {
+  &__grad {
+
+    background-image: linear-gradient(to right, #b3b3cb, rgb(204, 0, 0, 0.8));
+  }
+
+  &__logo {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+  }
+
+  &__title {
+    display: none;
+    font-family: Monotype Corsiva;
+    word-spacing: 5px;
+  }
+
+  @media only screen and (min-width : 480px) and (max-width : 900px) {
+    &__title {
+      display: inline;
+    }
+  }
+}

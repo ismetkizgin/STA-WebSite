@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>{{ 'Martyr ID' | translate }}</th>
+                    <th>{{ 'First Name' | translate }} {{ 'Last Name' | translate }}</th>
+                    <th>{{ 'City' | translate }}/{{ 'District' | translate }}</th>
+                    <th>{{ 'Rank' | translate }}</th>
+                    <th>{{ 'Institution Name' | translate }}</th>
+                    <th>{{ 'Institution ID' | translate }}</th>
+                    <th style="width: 1%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let martyr of martyrs">
+                    <td>{{ martyr.MartyrID }}</td>
+                    <td>{{ martyr.MartyrFirstName }} {{ martyr.MartyrLastName }}</td>
+                    <td>{{ martyr.MartyrCity }} {{ martyr.MartyrDistrict }}</td>
+                    <td>{{ martyr.RankID }}</td>
+                    <td>{{ martyr.InstitutionName }}</td>
+                    <td>{{ martyr.InstitutionID }}</td>
+                    <td>
+                        <a mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="list-menu">more_vert</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item>
+                                <mat-icon>remove_red_eye</mat-icon>
+                                <span>{{ 'Examine' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>qr_code_2</mat-icon>
+                                <span>{{ 'QR Code' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item (click)="martyrDelete(martyr.MartyrID)">
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

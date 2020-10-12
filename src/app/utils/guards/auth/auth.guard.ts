@@ -1,19 +1,57 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../../services';
+import {
+  Router,
+  CanActivate,
+  CanActivateChild,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
-  constructor(private _authService: AuthService, private _router: Router) {}
+export class AuthGuard implements CanActivate, CanActivateChild {
+  constructor(
+    private _router: Router,
+    private _authenticationService: AuthService
+  ) {}
 
-  async canActivate() {
-    const response = await this._authService.tokenDecode();
-    if(response)
+  callback: Function;
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    return true;
+  }
+
+  async canActivateChild(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ) {
+    const response: any = await this._authenticationService.tokenDecode();
+    if (response) {
+      if (
+        next.data.authorize &&
+        next.data.authorize.indexOf(response.UserStatusName) === -1
+      ) {
+        this._router.navigate(['/admin']);
+        return false;
+      }
       return true;
-    
-      this._router.navigateByUrl('/login')
-      return false
+    }
+
+    // not logged in so redirect to login page with the return url
+    this._router.navigate(['/login'], {
+      queryParams: { returnUrl: state.url },
+    });
+    return false;
   }
 }

@@ -7,8 +7,12 @@
         </div>
 
         <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
-            <input type="text" name="UserIdentityNo" id="UserIdentityNo" class="login__input" placeholder="{{ 'T.R. Identification Number' | translate }}" #UserEmail="ngModel" [(ngModel)]="model.UserIdentityNo" required/>
-            <input type="password" name="UserPassword" id="UserPassword" class="login__input" placeholder="{{ 'Password' | translate }}" #UserPassword="ngModel" [(ngModel)]="model.UserPassword" required/>
+            <input type="text" name="UserIdentityNo" id="UserIdentityNo" class="login__input"
+                placeholder="{{ 'T.R. Identification Number' | translate }}" #UserEmail="ngModel"
+                [(ngModel)]="model.UserIdentityNo" required />
+            <input type="password" name="UserPassword" id="UserPassword" class="login__input"
+                placeholder="{{ 'Password' | translate }}" #UserPassword="ngModel" [(ngModel)]="model.UserPassword"
+                required />
             <button type="submit" class="login__button">{{ 'Login' | translate }}</button>
         </form>
 
@@ -18,10 +22,12 @@
                     <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
                 </div>
                 <div class="col-12 login__langues__box">
-                    <a (click)="useLanguage('tr')"><img src="assets/flag/Turkey_Flag.png"
-                            class="login__langues__flag" /></a>
-                    <a (click)="useLanguage('en')"><img src="assets/flag/United_Kingdom_Flag.png"
-                            class="login__langues__flag" /></a>
+                    <a (click)="useLanguage('tr')">
+                        <i class="flag-icon flag-icon-tr login__langues__flag"></i>
+                    </a>
+                    <a (click)="useLanguage('en')">
+                        <i class="flag-icon flag-icon-us login__langues__flag"></i>
+                    </a>
                 </div>
             </div>
         </div>

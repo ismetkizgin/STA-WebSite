@@ -1,0 +1,89 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="modal-header">
+        <h2>{{ 'Institution Information' | translate}}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ 'Institution Information' | translate }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ 'Institution Name' | translate }}</mat-label>
+                            <input matInput type="text" [(ngModel)]="institution.InstitutionName" disabled>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ 'Email Address' | translate }}</mat-label>
+                            <input matInput type="text" [(ngModel)]="institution.InstitutionEmail" disabled>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ 'Phone Number' | translate }}</mat-label>
+                            <input matInput type="text" [(ngModel)]="institution.InstitutionPhone" disabled>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>{{ 'City' | translate }}</mat-label>
+                                    <input matInput type="text" [(ngModel)]="institution.InstitutionCity" disabled>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>{{ 'District' | translate }}</mat-label>
+                                    <input matInput type="text" [(ngModel)]="institution.InstitutionDistrict" disabled>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ 'Institution Personnel List' | translate }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>{{ 'User No' | translate }}</th>
+                                        <th>{{ 'First Name' | translate }} {{ 'Last Name' | translate }}</th>
+                                        <th>{{ 'Phone' | translate }}</th>
+                                        <th>{{ 'E-mail' | translate }}</th>
+                                        <th>{{ 'User Type' | translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of users">
+                                        <td>{{ user.UserID }}</td>
+                                        <td>{{ user.UserFirstName }} {{ user.UserLastName }}</td>
+                                        <td>{{ user.UserPhone }}</td>
+                                        <td>{{ user.UserEmail }}</td>
+                                        <td>{{ user.UserStatusName }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
