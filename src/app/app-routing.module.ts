@@ -14,6 +14,7 @@ import {
   InstitutionListComponent,
   AddUserComponent,
   AddInstitutionComponent,
+  MartyrListComponent,
   UserListComponent,
 } from './pages';
 
@@ -88,6 +89,11 @@ const routes: Routes = [
           authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
         },
       },
+      {
+        path: 'martyrs',
+        component: MartyrListComponent,
+        data: { title: 'Martyr List', icon: 'fa fa-3x fa-users' },
+      },
     ],
   },
   { path: 'login', component: LoginComponent },
@@ -97,5 +103,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 export const routingComponents = [];
