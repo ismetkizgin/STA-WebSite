@@ -6,13 +6,20 @@ import { HomepageComponent } from '../../../../pages/client';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ClientBannerComponent } from '../client-banner/client-banner.component';
+import { ClientHeaderComponent } from '../client-header/client-header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [ClientLayoutComponent, HomepageComponent],
+  declarations: [
+    ClientLayoutComponent,
+    HomepageComponent,
+    ClientBannerComponent,
+    ClientHeaderComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -27,4 +34,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class ClientLayoutModule {}
+export class ClientLayoutModule { }
