@@ -6,8 +6,9 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'First Name' | translate }}</mat-label>
-              <input matInput type="text" placeholder="{{ 'Enter Firt Name' | translate }}" name="MartyrFirstName"
-                #MartyrFirstName="ngModel" [(ngModel)]="_model.MartyrFirstName" required>
+              <input matInput type="text" placeholder="{{ 'Enter Firt Name' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="MartyrFirstName" #MartyrFirstName="ngModel"
+                [(ngModel)]="_model.MartyrFirstName" required>
               <mat-error *ngIf="MartyrFirstName.invalid&&MartyrFirstName.touched">
                 {{ 'First Name field must be filled' | translate }}</mat-error>
             </mat-form-field>
@@ -15,8 +16,9 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Last Name' | translate }}</mat-label>
-              <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}" name="MartyrLastName"
-                #MartyrLastName="ngModel" [(ngModel)]="_model.MartyrLastName" required>
+              <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="MartyrLastName" #MartyrLastName="ngModel"
+                [(ngModel)]="_model.MartyrLastName" required>
               <mat-error *ngIf="MartyrLastName.invalid&&MartyrLastName.touched">
                 {{ 'Last Name field must be filled' | translate }}</mat-error>
             </mat-form-field>
@@ -26,8 +28,8 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Date Of Birth' | translate }}</mat-label>
-              <input matInput [matDatepicker]="martyrDateOfBrith" name="MartyrDateOfBrith"
-              #MartyrDateOfBrith="ngModel" [(ngModel)]="_model.MartyrDateOfBrith" required>
+              <input matInput [matDatepicker]="martyrDateOfBrith" name="MartyrDateOfBrith" #MartyrDateOfBrith="ngModel"
+                [(ngModel)]="_model.MartyrDateOfBrith" required>
               <mat-datepicker-toggle matSuffix [for]="martyrDateOfBrith"></mat-datepicker-toggle>
               <mat-datepicker #martyrDateOfBrith></mat-datepicker>
               <mat-error *ngIf="MartyrDateOfBrith.invalid&&MartyrDateOfBrith.touched">
@@ -39,8 +41,8 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Date Of Death' | translate }}</mat-label>
-              <input matInput [matDatepicker]="martyrDateOfDeath" name="MartyrDateOfDeath"
-              #MartyrDateOfDeath="ngModel" [(ngModel)]="_model.MartyrDateOfDeath" required>
+              <input matInput [matDatepicker]="martyrDateOfDeath" name="MartyrDateOfDeath" #MartyrDateOfDeath="ngModel"
+                [(ngModel)]="_model.MartyrDateOfDeath" required>
               <mat-datepicker-toggle matSuffix [for]="martyrDateOfDeath"></mat-datepicker-toggle>
               <mat-datepicker #martyrDateOfDeath></mat-datepicker>
               <mat-error *ngIf="MartyrDateOfDeath.invalid&&MartyrDateOfDeath.touched">
@@ -78,12 +80,11 @@
           <div class="form-group">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'Death Place' | translate }}</mat-label>
-              <select matNativeControl name="MartyrPlaceOfDeath" #MartyrPlaceOfDeath="ngModel" [(ngModel)]="_model.MartyrPlaceOfDeath"
-                (change)='onCitySelected(MartyrPlaceOfDeath.value)' required>
-                <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
-              </select>
+              <input matInput type="text" placeholder="{{ 'Enter City Name' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="MartyrPlaceOfDeath" #MartyrPlaceOfDeath="ngModel"
+                [(ngModel)]="_model.MartyrPlaceOfDeath" required>
               <mat-error *ngIf="MartyrPlaceOfDeath.invalid">
-                {{ 'Select the city where the martyr died' | translate }}</mat-error>
+                {{ 'Enter the city name where the martyr died' | translate }}</mat-error>
             </mat-form-field>
           </div>
         </div>
