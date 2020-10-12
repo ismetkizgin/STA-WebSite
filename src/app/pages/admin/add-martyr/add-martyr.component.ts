@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
 import { getCityName, getDistrictsName } from 'turkey-yl-district';
 import { ActivatedRoute, Router } from '@angular/router';
-//import { MartyrService } from '../../../utils/services';
+import { MartyrService } from '../../../utils/services';
 
 
 @Component({
@@ -23,9 +23,9 @@ export class AddMartyrComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
     private _activatedRoute: ActivatedRoute,
-   // private _martyrService: MartyrService,
+    private _martyrService: MartyrService,
     private _router: Router
-  ) {}
+  ) { }
   _model: Martyr = new Martyr();
 
   async ngOnInit() {
@@ -35,9 +35,9 @@ export class AddMartyrComponent implements OnInit {
     );
     if (MartyrID != null) {
       try {
-       // this._model = (<any>(
-         // await this._martyrService.findAsync(MartyrID)
-       // ))[0];
+        // this._model = (<any>(
+        // await this._martyrService.findAsync(MartyrID)
+        // ))[0];
         //this.getDistricts(this._model.MartyrCity);
       } catch (error) {
         console.log(error);
@@ -93,10 +93,10 @@ export class AddMartyrComponent implements OnInit {
       this._model.MartyrDistrict = '';
   }
 
-  async insertActionAsync(signUpForm: NgForm) {
+  async insertActionAsync(martyrRegistrationForm: NgForm) {
     try {
-      //await this._martyrService.insertAsync(signUpForm.value);
-      signUpForm.resetForm();
+      await this._martyrService.insertAsync(martyrRegistrationForm.value);
+      martyrRegistrationForm.resetForm();
       return true;
     } catch (error) {
       this.errorNotification(error);
@@ -106,13 +106,13 @@ export class AddMartyrComponent implements OnInit {
 
   async updateActionAsync(signUpForm: NgForm) {
     try {
-     // await this._martyrService.updateAsync(
-     //   Object.assign(signUpForm.value, {
+      // await this._martyrService.updateAsync(
+      //   Object.assign(signUpForm.value, {
       //    MartyrID: parseInt(
       //      this._activatedRoute.snapshot.paramMap.get('MartyrID')
-       //   ),
-       // })
-     // );
+      //   ),
+      // })
+      // );
       return true;
     } catch (error) {
       this.errorNotification(error);
