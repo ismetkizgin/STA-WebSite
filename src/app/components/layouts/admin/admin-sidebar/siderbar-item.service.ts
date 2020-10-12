@@ -6,7 +6,7 @@ import { Roles } from '../../../../models/roles';
   providedIn: 'root',
 })
 export class SidebarItemService {
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   _url = this._router.routerState.snapshot.url;
   menu: Array<object> = [
@@ -55,6 +55,24 @@ export class SidebarItemService {
         },
       ],
       authorize: [Roles.Root, Roles.Administrator],
+    },
+    {
+      title: 'Martyr Transactions',
+      icon: 'fa fa-user',
+      linkActive: ['/admin/martyrs', '/admin/martyr/add'],
+      submenuShowHide: this.getChildUrlActiveState(['martyrs', 'martyr']),
+      submenu: [
+        {
+          title: 'Martyr List',
+          icon: 'fas fa-landmark',
+          link: '/admin/martyrs',
+        },
+        {
+          title: 'Martyr Add',
+          icon: 'fas fa-monument',
+          link: '/admin/martyr/add',
+        },
+      ],
     },
   ];
 
