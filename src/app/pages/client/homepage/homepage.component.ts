@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Martyr } from './homepage.model';
+import { MartyrService } from '../../../utils/services';
+
+
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _martyrService:MartyrService) { }
 
-  ngOnInit(): void {
+  martyrs:Array<Martyr>
+  searchText: string;
+
+  async ngOnInit(){
+    this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
 
 }

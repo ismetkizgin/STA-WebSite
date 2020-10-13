@@ -1,3 +1,66 @@
-<p>homepage works!</p>
- 
-<p>{{ 'home' | translate }}</p>
+<div class="row mr-0">
+    <div class="col-md-6 col-sm-12 col-lg-4 col-xl-3 ml-auto ">
+        <mat-form-field>
+            <mat-label>{{ 'Search' | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="searchText">
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card-group">
+    <div class="row m-0 p-3 col-12 col-md-6 col-lg-4" *ngFor="let martyr of martyrs | filter:searchText">
+        <div class="card col-12 border border-danger shadow-sm shadowHover">
+            <div class="card-body rounded">
+                <h3 class="card-title col-12 border-bottom">{{ 'Martyr Information' | translate }}</h3>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row p-1">
+                            <div class="card-text col-5 col-md-12 col-lg-6">
+                                <b>{{ 'First Name: ' | translate }}</b></div>
+                            <div class="card-text col-7 col-md-12 col-lg-6">{{martyr.MartyrFirstName}}</div>
+                        </div>
+                        <div class="row p-1">
+                            <div class="card-text col-5 col-md-12 col-lg-6">
+                                <b>{{ 'Last Name: ' | translate }}</b></div>
+                            <div class="card-text col-7 col-md-12 col-lg-6">{{martyr.MartyrLastName}}</div>
+                        </div>
+                        <div class="row p-1">
+                            <div class="card-text col-5 col-md-12 col-lg-6">
+                                <b>{{ 'City: ' | translate }}</b>
+                            </div>
+                            <div class="card-text col-7 col-md-12 col-lg-6">{{martyr.MartyrCity}}</div>
+                        </div>
+                        <div class="row p-1">
+                            <div class="card-text col-5 col-md-12 col-lg-6">
+                                <b>{{ 'District: ' | translate }}</b></div>
+                            <div class="card-text col-7 col-md-12 col-lg-6">{{martyr.MartyrDistrict}}</div>
+                        </div>
+                        <div class="row p-1">
+                            <div class="card-text col-5 col-md-12 col-lg-6">
+                                <b>{{ 'Date Of Birth: ' | translate }}</b></div>
+                            <div class="card-text col-7 col-md-12 col-lg-6">{{martyr.MartyrDateOfBirth}}
+                            </div>
+                        </div>
+                        <div class="row p-1">
+                            <div class="card-text col-5 col-md-12 col-lg-6">
+                                <b>{{ 'Date Of Death: ' | translate }}</b></div>
+                            <div class="card-text col-7 col-md-12 col-lg-6">{{martyr.MartyrDateOfDeath}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-0">
+                        <img src={{martyr.MartyrImagePath}} width="100%" height="100px" class="rounded">
+                    </div>
+                </div>
+                <div class="row mr-0">
+                    <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-outline-danger">{{ 'Examine' |translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
