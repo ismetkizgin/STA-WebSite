@@ -13,10 +13,13 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgSearchFilterModule } from 'ng-search-filter';
+import { CKEditorModule } from 'ckeditor4-angular';
 import {
   InstitutionInfoDialogComponent,
   UserInfoDialogComponent,
@@ -28,9 +31,11 @@ import {
   AddUserComponent,
   AddInstitutionComponent,
   InstitutionListComponent,
+  AddMartyrComponent,
   MartyrListComponent,
   UserListComponent,
 } from '../../../../pages/admin';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -48,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddUserComponent,
     AddInstitutionComponent,
     InstitutionListComponent,
+    AddMartyrComponent,
     MartyrListComponent,
     UserListComponent,
     DialogWindowComponent,
@@ -62,6 +68,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    CKEditorModule,
+    MatMomentDateModule,
     MatMenuModule,
     NgSearchFilterModule,
     MatIconModule,
