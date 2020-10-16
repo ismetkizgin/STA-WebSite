@@ -61,9 +61,9 @@ export class AddMartyrComponent implements OnInit {
     if (MartyrID != null) {
       try {
         this._model = <any>await this._martyrService.findAsync(MartyrID);
-        console.log(this._model);
         this.getDistricts(this._model.MartyrCity);
       } catch (error) {
+        console.log(error);
         this.errorNotification(error);
         this.router.navigateByUrl('admin');
       }
@@ -111,7 +111,6 @@ export class AddMartyrComponent implements OnInit {
 
   async insertActionAsync(martyrRegistrationForm: NgForm) {
     try {
-      console.log(martyrRegistrationForm.value);
       const formData = new FormData();
       formData.append('Image', this._model.Image);
       formData.set(
@@ -146,7 +145,6 @@ export class AddMartyrComponent implements OnInit {
       martyrRegistrationForm.resetForm();
       return true;
     } catch (error) {
-      console.log(error);
       this.errorNotification(error);
       return false;
     }
@@ -163,7 +161,6 @@ export class AddMartyrComponent implements OnInit {
       );
       return true;
     } catch (error) {
-      console.log(error);
       this.errorNotification(error);
       return false;
     }
@@ -185,6 +182,11 @@ export class AddMartyrComponent implements OnInit {
       case 417:
         this._translateService
           .get('Please enter correct martyr information !')
+          .subscribe((value) => (errorMessage = value));
+        break;
+      case 404:
+        this._translateService
+          .get('Such a martyr information is not registered in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       default:
