@@ -34,7 +34,7 @@ export class MartyrListComponent implements OnInit {
     };
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
-        message: 'Are you sure you want to delete the martyr ?',
+        message: 'Are you sure you want to delete the martyr information ?',
         icon: 'fa fa-exclamation',
       },
     });
