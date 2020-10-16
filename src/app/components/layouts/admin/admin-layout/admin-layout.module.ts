@@ -16,8 +16,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgSearchFilterModule } from 'ng-search-filter';
+import { CKEditorModule } from 'ckeditor4-angular';
 import {
   InstitutionInfoDialogComponent,
   UserInfoDialogComponent,
@@ -68,6 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    CKEditorModule,
+    MatMomentDateModule,
     MatMenuModule,
     NgSearchFilterModule,
     MatIconModule,

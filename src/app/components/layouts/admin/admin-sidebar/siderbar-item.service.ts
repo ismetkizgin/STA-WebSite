@@ -58,7 +58,7 @@ export class SidebarItemService {
     },
     {
       title: 'Martyr Transactions',
-      icon: 'fa fa-user',
+      icon: 'fas fa-archway',
       linkActive: ['/admin/martyrs', '/admin/martyr/add'],
       submenuShowHide: this.getChildUrlActiveState(['martyrs', 'martyr']),
       submenu: [
