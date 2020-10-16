@@ -14,6 +14,7 @@ import {
   InstitutionListComponent,
   AddUserComponent,
   AddInstitutionComponent,
+  AddMartyrComponent,
   MartyrListComponent,
   UserListComponent,
 } from './pages';
@@ -48,7 +49,7 @@ const routes: Routes = [
         path: 'user/edit/:UserID',
         component: AddUserComponent,
         data: {
-          title: 'User Edit',
+          title: 'Edit User Information',
           icon: 'fa fa-2x fa-user-edit',
           authorize: [Roles.Root, Roles.Administrator, Roles.InstitutionAdmin],
         },
@@ -75,7 +76,7 @@ const routes: Routes = [
         path: 'institution/edit/:InstitutionID',
         component: AddInstitutionComponent,
         data: {
-          title: 'Institution Edit',
+          title: 'Edit Institution Information',
           icon: 'fa fa-2x fa-edit',
           authorize: [Roles.Root, Roles.Administrator],
         },
@@ -92,7 +93,17 @@ const routes: Routes = [
       {
         path: 'martyrs',
         component: MartyrListComponent,
-        data: { title: 'Martyr List', icon: 'fa fa-3x fa-users' },
+        data: { title: 'Martyr List', icon: 'fa-2x fas fa-landmark' },
+      },
+      {
+        path: 'martyr/add',
+        component: AddMartyrComponent,
+        data: { title: 'Martyr Add', icon: 'fas fa-monument fa-2x' },
+      },
+      {
+        path: 'martyr/edit/:MartyrID',
+        component: AddMartyrComponent,
+        data: { title: 'Edit Martyr Information', icon: 'fas fa-monument fa-2x' },
       },
     ],
   },

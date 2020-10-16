@@ -44,7 +44,7 @@ export class AppComponent {
         })
       )
       .subscribe((title) => {
-        this._translateService.get('Ailem Güvende').subscribe((projectName) => {
+        this._translateService.get('ProjectName').subscribe((projectName) => {
           title != null
             ? this._translateService.get(title).subscribe((value) => {
                 this.titleService.setTitle(`${value} - ${projectName}`);

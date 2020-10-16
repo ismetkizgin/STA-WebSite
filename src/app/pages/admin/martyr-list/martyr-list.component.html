@@ -3,12 +3,11 @@
         <table class="table table-hover text-nowrap">
             <thead>
                 <tr>
-                    <th>{{ 'Martyr ID' | translate }}</th>
+                    <th>{{ 'Martyr No' | translate }}</th>
                     <th>{{ 'First Name' | translate }} {{ 'Last Name' | translate }}</th>
                     <th>{{ 'City' | translate }}/{{ 'District' | translate }}</th>
                     <th>{{ 'Rank' | translate }}</th>
                     <th>{{ 'Institution Name' | translate }}</th>
-                    <th>{{ 'Institution ID' | translate }}</th>
                     <th style="width: 1%;"></th>
                 </tr>
             </thead>
@@ -16,10 +15,9 @@
                 <tr *ngFor="let martyr of martyrs">
                     <td>{{ martyr.MartyrID }}</td>
                     <td>{{ martyr.MartyrFirstName }} {{ martyr.MartyrLastName }}</td>
-                    <td>{{ martyr.MartyrCity }} {{ martyr.MartyrDistrict }}</td>
-                    <td>{{ martyr.RankID }}</td>
+                    <td>{{ martyr.MartyrCity }} / {{ martyr.MartyrDistrict }}</td>
+                    <td>{{ martyr.RankName }}</td>
                     <td>{{ martyr.InstitutionName }}</td>
-                    <td>{{ martyr.InstitutionID }}</td>
                     <td>
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
@@ -33,7 +31,7 @@
                                 <mat-icon>qr_code_2</mat-icon>
                                 <span>{{ 'QR Code' | translate }}</span>
                             </a>
-                            <a mat-menu-item>
+                            <a mat-menu-item [routerLink]="['/admin/martyr/edit/',martyr.MartyrID]">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>

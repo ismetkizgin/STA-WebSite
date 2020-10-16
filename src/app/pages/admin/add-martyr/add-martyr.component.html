@@ -1,0 +1,130 @@
+<form #martyrRegistrationForm='ngForm' (ngSubmit)="onSave(martyrRegistrationForm)">
+  <div class="card card-outline card-info">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'First Name' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter First Name' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="MartyrFirstName" #MartyrFirstName="ngModel"
+                [(ngModel)]="_model.MartyrFirstName" required>
+              <mat-error *ngIf="MartyrFirstName.invalid&&MartyrFirstName.touched">
+                {{ 'Martyr First Name field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Last Name' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="MartyrLastName" #MartyrLastName="ngModel"
+                [(ngModel)]="_model.MartyrLastName" required>
+              <mat-error *ngIf="MartyrLastName.invalid&&MartyrLastName.touched">
+                {{ 'Martyr Last Name field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'City'| translate}}</mat-label>
+              <select matNativeControl name="MartyrCity" #MartyrCity="ngModel" [(ngModel)]="_model.MartyrCity"
+                (change)='onCitySelected(MartyrCity.value)' required>
+                <option *ngFor="let city of citys" [value]="city">{{ city }}</option>
+              </select>
+              <mat-error *ngIf="MartyrCity.invalid">
+                {{ 'Select the city where the martyr was born' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'District'| translate}}</mat-label>
+              <select matNativeControl name="MartyrDistrict" #MartyrDistrict="ngModel" ng-model="MartyrDistrict"
+                [(ngModel)]="_model.MartyrDistrict" required>
+                <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+              </select>
+              <mat-error *ngIf="MartyrDistrict.invalid&&MartyrDistrict.touched">
+                {{ 'Select the county where the martyr was born' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Date Of Birth' | translate }}</mat-label>
+              <input matInput [matDatepicker]="martyrDateOfBirth" name="MartyrDateOfBirth" #MartyrDateOfBirth="ngModel"
+                [(ngModel)]="_model.MartyrDateOfBirth" required>
+              <mat-datepicker-toggle matSuffix [for]="martyrDateOfBirth"></mat-datepicker-toggle>
+              <mat-datepicker #martyrDateOfBirth></mat-datepicker>
+              <mat-error *ngIf="MartyrDateOfBirth.invalid&&MartyrDateOfBirth.touched">
+                {{ 'Fill in the date of birth field' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Date Of Death' | translate }}</mat-label>
+              <input matInput [matDatepicker]="martyrDateOfDeath" name="MartyrDateOfDeath" #MartyrDateOfDeath="ngModel"
+                [(ngModel)]="_model.MartyrDateOfDeath" required>
+              <mat-datepicker-toggle matSuffix [for]="martyrDateOfDeath"></mat-datepicker-toggle>
+              <mat-datepicker #martyrDateOfDeath></mat-datepicker>
+              <mat-error *ngIf="MartyrDateOfDeath.invalid&&MartyrDateOfDeath.touched">
+                {{ 'Fill in the date of death field' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Place of Martyrdom' | translate }}</mat-label>
+              <input matInput type="text" placeholder="{{ 'Enter Place of Martyrdom' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="MartyrPlaceOfDeath" #MartyrPlaceOfDeath="ngModel"
+                [(ngModel)]="_model.MartyrPlaceOfDeath" required>
+              <mat-error *ngIf="MartyrPlaceOfDeath.invalid">
+                {{ 'The place of martyrdom field must be filled' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Rank' | translate }}</mat-label>
+              <select matNativeControl name="RankName" #RankName="ngModel" ng-model="RankName"
+                [(ngModel)]="_model.RankName" required>
+                <option *ngFor="let rank of ranks" [value]="rank.RankName">{{ rank.RankName }}</option>
+              </select>
+              <mat-error *ngIf="RankName.invalid">
+                {{ 'Select the rank of martyr' | translate }}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12" [hidden]="router.isActive('admin/martyr/edit',false)">
+          <div class="form-group">
+            <input style="display: none" type="file" (change)="onFileSelect($event)" name="MartyrImage" #MartyrImage
+              accept="image/*">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'Martyr Image' | translate }}</mat-label>
+              <input matInput disabled type="text" value="{{_model.Image?.name}}" #ImageName required>
+              <a type="button" (click)="MartyrImage.click()" matSuffix>
+                <mat-icon>backup</mat-icon>
+              </a>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <ckeditor [(ngModel)]="_model.MartyrContent" #MartyrContent="ngModel" id="MartyrContent"
+              name="MartyrContent" [data]="_model.MartyrContent" [config]="{ language:lang }">
+            </ckeditor>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
+    </div>
+  </div>
+</form>
