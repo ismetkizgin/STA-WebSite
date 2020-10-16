@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ClientBannerComponent } from '../client-banner/client-banner.component';
 import { ClientHeaderComponent } from '../client-header/client-header.component';
+import { ClientFooterComponent } from '../client-footer/client-footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -18,7 +19,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClientLayoutComponent,
     HomepageComponent,
     ClientBannerComponent,
-    ClientHeaderComponent
+    ClientHeaderComponent,
+    ClientFooterComponent
   ],
   imports: [
     CommonModule,
