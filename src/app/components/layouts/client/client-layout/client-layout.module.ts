@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { HomepageComponent } from '../../../../pages/client';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgSearchFilterModule,
     CommonModule,
     RouterModule,
+    MatIconModule,
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
