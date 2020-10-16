@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card card-outline card-danger">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5 col-sm-5">
+                    <h4><strong>{{ 'Contact Information' | translate }}</strong></h4>
+                    <p>
+                        {{ 'Phone Number' | translate }}:
+                        <span class="muted"> 0 (555) 55 55 </span><br>
+                        {{ 'Email Address' | translate }}:
+                        <span class="muted">info@sta.com</span>
+                    </p>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <h4><strong>{{ 'Contact Form' | translate }}</strong></h4>
+                    <form action="">
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ 'First Name' | translate }}</mat-label>
+                                <input matInput type="text" placeholder="{{'Enter First Name'|translate}}"
+                                    name="UserFirstName" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ 'Last Name' | translate }}</mat-label>
+                                <input matInput type="text" placeholder="{{'Enter Last Name'|translate}}"
+                                    name="UserLastName" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ 'Phone Number' | translate }}</mat-label>
+                                <input matInput type="text" placeholder="{{ 'Enter Phone Number' | translate }}"
+                                    name="UserPhone" pattern="[0-9]{11}" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ 'Email Address' | translate }}</mat-label>
+                                <input matInput type="email" placeholder="{{ 'Enter Email Address' | translate }}"
+                                    name="UserEmail" pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ 'Message' | translate }}</mat-label>
+                                <textarea matInput type="text" placeholder="{{'Enter Message'|translate}}"
+                                    name="UserMessage" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" required>
+                                </textarea>
+                            </mat-form-field>
+                        </div>
+                    </form>
+                    <button type="submit" class="btn btn-danger">{{ 'Send' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
