@@ -6,4 +6,5 @@ export class Martyr {
     MartyrDateOfBirth: string;
     MartyrDateOfDeath: string;
     MartyrImagePath: string;
+    MartyrRankAbbreviation:string;
 }
