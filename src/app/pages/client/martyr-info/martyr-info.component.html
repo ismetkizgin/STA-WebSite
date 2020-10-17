@@ -1,0 +1,31 @@
+<div class="martyr-info">
+    <div class="card card-outline card-danger m-3">
+        <div class="card-header">
+            <h3 class="card-title">{{martyr.RankAbbreviation}} {{martyr.MartyrFirstName}} {{martyr.MartyrLastName}}
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-12 d-flex justify-content-center">
+                    <img src={{martyr.MartyrImagePath}} width="300vw" height="200vh" class="mb-3 border border-dark">
+                </div>
+                <div class="col-lg-8 col-md-8 col-12">
+                    <div class="row">
+                        <div class="col-md-6 col-12 mb-1"><b>{{ 'Rank' | translate }}:</b> {{martyr.RankName}}</div>
+                        <div class="col-md-6 col-12 mb-1"><b>{{ 'Place Of Birth' | translate }}:</b>
+                            {{martyr.MartyrDistrict}} / {{martyr.MartyrCity}}</div>
+                        <div class="col-md-6 col-12 mb-1"><b>{{ 'Date Of Birth' | translate }}:</b>
+                            {{martyr.MartyrDateOfBirth}}</div>
+                        <div class="col-md-6 col-12 mb-1"><b>{{ 'Date Of Death' | translate }}:</b>
+                            {{martyr.MartyrDateOfDeath}}</div>
+                        <div class="col-md-6 col-12 mb-1"><b>{{ 'Place Of Martyrdom' | translate }}:</b>
+                            {{martyr.MartyrPlaceOfDeath}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-3 martyr-info__content">
+        {{martyr.MartyrContent}}
+    </div>
+</div>
