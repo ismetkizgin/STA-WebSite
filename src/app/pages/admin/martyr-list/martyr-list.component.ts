@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Martyr } from './martyr-list.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { Roles } from '../../../models/roles';
 import {
   DialogWindowComponent,
   MartyrImageDialogComponent,
@@ -23,7 +24,6 @@ export class MartyrListComponent implements OnInit {
   ) {}
 
   martyrs: Array<Martyr>;
-  userInstitutionID: number;
 
   pictureChangeOpenDialog(MartyrImagePath, MartyrID) {
     this._dialog.open(MartyrImageDialogComponent, {
@@ -36,7 +36,6 @@ export class MartyrListComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.userInstitutionID = this._authService.currentUserValue.result.InstitutionID;
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
 
@@ -99,5 +98,19 @@ export class MartyrListComponent implements OnInit {
         }
       }
     });
+  }
+
+  roleControl(InstitutionID): boolean {
+    console.log(InstitutionID);
+    if (
+      this._authService.currentUserValue.result.InstitutionID ==
+        InstitutionID ||
+      [Roles.Root, Roles.Administrator].indexOf(
+        this._authService.currentUserValue.result.UserStatusName
+      ) != -1
+    )
+      return false;
+
+    return true;
   }
 }
