@@ -4,8 +4,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { Martyr } from './martyr-list.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogWindowComponent } from '../../../components/';
-
+import { Roles } from '../../../models/roles';
+import {
+  DialogWindowComponent,
+  MartyrImageDialogComponent,
+} from '../../../components/';
 @Component({
   selector: 'app-martyr-list',
   templateUrl: './martyr-list.component.html',
@@ -21,12 +24,21 @@ export class MartyrListComponent implements OnInit {
   ) {}
 
   martyrs: Array<Martyr>;
-  userInstitutionID: number;
+
+  pictureChangeOpenDialog(MartyrImagePath, MartyrID) {
+    this._dialog.open(MartyrImageDialogComponent, {
+      width: '300px',
+      data: {
+        MartyrImagePath,
+        MartyrID,
+      },
+    });
+  }
 
   async ngOnInit() {
-    this.userInstitutionID = this._authService.currentUserValue.result.InstitutionID;
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
+
   async martyrDelete(MartyrID) {
     console.log(MartyrID);
     let notification: any = {
@@ -86,5 +98,19 @@ export class MartyrListComponent implements OnInit {
         }
       }
     });
+  }
+
+  roleControl(InstitutionID): boolean {
+    console.log(InstitutionID);
+    if (
+      this._authService.currentUserValue.result.InstitutionID ==
+        InstitutionID ||
+      [Roles.Root, Roles.Administrator].indexOf(
+        this._authService.currentUserValue.result.UserStatusName
+      ) != -1
+    )
+      return false;
+
+    return true;
   }
 }

@@ -43,4 +43,13 @@ export class MartyrService {
       `martyr/${martyrID}`
     );
   }
+
+  async pictureChange(value, martyrID) {
+    return await this._apiFetchService.requestAsync(
+      'PUT',
+      `martyr/image/${martyrID}`,
+      value,
+      true
+    );
+  }
 }
