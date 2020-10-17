@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MartyrService } from 'src/app/utils';
 import { Martyr } from './martyr-info.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-martyr-info',
@@ -14,7 +15,8 @@ export class MartyrInfoComponent implements OnInit {
     private _router: Router,
     private _activatedRoute: ActivatedRoute
   ) {}
-
+  
+  moment = moment;
   martyr: Martyr;
   async ngOnInit() {
     const MartyrID = this._activatedRoute.snapshot.paramMap.get('MartyrID');
