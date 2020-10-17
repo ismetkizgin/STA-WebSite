@@ -6,34 +6,39 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import {
   DialogWindowComponent,
-  MartyrImageDialogComponent
+  MartyrImageDialogComponent,
 } from '../../../components/';
 @Component({
   selector: 'app-martyr-list',
   templateUrl: './martyr-list.component.html',
-  styleUrls: ['./martyr-list.component.scss']
+  styleUrls: ['./martyr-list.component.scss'],
 })
 export class MartyrListComponent implements OnInit {
-
   constructor(
     private _martyrService: MartyrService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
     private _dialog: MatDialog
-  ) { }
+  ) {}
 
   martyrs: Array<Martyr>;
 
-  examineOpenDialog(){
-    this._dialog.open(MartyrImageDialogComponent,{
-      width:"300px",
+  pictureChangeOpenDialog(MartyrImagePath, MartyrID) {
+    this._dialog.open(MartyrImageDialogComponent, {
+      width: '300px',
+      data: {
+        MartyrImagePath,
+        MartyrID,
+      },
     });
   }
+
   async ngOnInit() {
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
+
   async martyrDelete(MartyrID) {
-    console.log(MartyrID)
+    console.log(MartyrID);
     let notification: any = {
       message: '',
       panelClass: 'notification__success',
@@ -92,5 +97,4 @@ export class MartyrListComponent implements OnInit {
       }
     });
   }
-
 }

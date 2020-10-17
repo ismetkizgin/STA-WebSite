@@ -1,25 +1,24 @@
 <div ma-dialog-title class="institution-dialog__header">
-    <div class="modal-header">
-        <h2>{{ 'Martyr Image Update' | translate}}</h2>
-        <a [mat-dialog-close]="false" class="close-icon">
-            <mat-icon>close</mat-icon>
-        </a>
-    </div>
+  <div class="modal-header">
+    <h2>{{ 'Martyr Image Update' | translate}}</h2>
+    <a [mat-dialog-close]="false" class="close-icon">
+      <mat-icon>close</mat-icon>
+    </a>
+  </div>
 </div>
 
 <mat-dialog-content class="mat-typography institution-dialog__content">
-    <img src="https://i.pinimg.com/736x/5b/bf/96/5bbf96018590867cc0dce48ec16d4705.jpg" width="100%" height="250px;">
-    <div class="form-group">
-        <input style="display: none" type="file" (change)="onFileSelect($event)" name="MartyrImage" #MartyrImage
-          accept="image/*">
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'Martyr Image' | translate }}</mat-label>
-          <input matInput disabled type="text" value="{{_model.Image?.name}}" #ImageName required>
-          <a type="button" (click)="MartyrImage.click()" matSuffix>
-            <mat-icon>backup</mat-icon>
-          </a>
-        </mat-form-field>
-      </div>
-      <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
-
+  <img src="{{martyrImage}}" width="100%" height="250px;">
+  <div class="form-group">
+    <input style="display: none" type="file" (change)="onFileSelect($event)" name="MartyrImage" #MartyrImage
+      accept="image/*">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'Martyr Image' | translate }}</mat-label>
+      <input matInput disabled type="text" value="{{martyrNewImage?.name}}" #ImageName required>
+      <a type="button" (click)="MartyrImage.click()" matSuffix>
+        <mat-icon>backup</mat-icon>
+      </a>
+    </mat-form-field>
+  </div>
+  <button type="submit" (click)="onSave()" class="btn btn-info w-100">{{'Save'| translate}}</button>
 </mat-dialog-content>
