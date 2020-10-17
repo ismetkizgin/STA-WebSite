@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MartyrService } from '../../../utils/services';
+import { MartyrService, AuthService } from '../../../utils/services';
 import { TranslateService } from '@ngx-translate/core';
 import { Martyr } from './martyr-list.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,10 +18,12 @@ export class MartyrListComponent implements OnInit {
     private _martyrService: MartyrService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _authService: AuthService
   ) {}
 
   martyrs: Array<Martyr>;
+  userInstitutionID: number;
 
   pictureChangeOpenDialog(MartyrImagePath, MartyrID) {
     this._dialog.open(MartyrImageDialogComponent, {
@@ -34,6 +36,7 @@ export class MartyrListComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.userInstitutionID = this._authService.currentUserValue.result.InstitutionID;
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
 

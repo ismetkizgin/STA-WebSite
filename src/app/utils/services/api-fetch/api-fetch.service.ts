@@ -11,7 +11,7 @@ export class ApiFetchService {
   requestAsync(
     method: string,
     path: string,
-    data: object,
+    data: object = null,
     getToken: boolean = false
   ) {
     return new Promise((resolve, reject) => {
@@ -19,7 +19,9 @@ export class ApiFetchService {
       if (data != null) Object.assign(config, { body: data });
       if (getToken)
         Object.assign(config, {
-          headers: { token: JSON.parse(localStorage.getItem('currentUser')).token },
+          headers: {
+            token: JSON.parse(localStorage.getItem('currentUser')).token,
+          },
         });
 
       this._http
@@ -30,9 +32,7 @@ export class ApiFetchService {
             reject({
               status: error.status,
               message:
-                error.error != undefined
-                  ? error.error.message
-                  : error.message,
+                error.error != undefined ? error.error.message : error.message,
             })
         );
     });

@@ -40,7 +40,7 @@
                             <div class="row pb-1">
                                 <b>{{ 'Place of Martyrdom' | translate }}</b>: {{martyr.MartyrPlaceOfDeath}}
                             </div>
-                            
+
                         </div>
                         <div class="col-4 ml-0">
                             <img src={{martyr.MartyrImagePath}} width="100%" height="100px" class="rounded">
@@ -49,7 +49,8 @@
                 </div>
                 <div class="card-footer">
                     <div class="col-12 d-flex justify-content-end">
-                        <button class="btn btn-danger">{{ 'Examine' |translate }}</button>
+                        <a [routerLink]="['/martyr', martyr.MartyrID]"
+                            class="btn btn-danger text-light">{{ 'Examine' |translate }}</a>
                     </div>
                 </div>
             </div>
