@@ -1,33 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { MartyrService } from '../../../utils/services';
+import { MartyrService, AuthService } from '../../../utils/services';
 import { TranslateService } from '@ngx-translate/core';
 import { Martyr } from './martyr-list.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  DialogWindowComponent,
-} from '../../../components/';
+import { DialogWindowComponent } from '../../../components/';
+
 @Component({
   selector: 'app-martyr-list',
   templateUrl: './martyr-list.component.html',
-  styleUrls: ['./martyr-list.component.scss']
+  styleUrls: ['./martyr-list.component.scss'],
 })
 export class MartyrListComponent implements OnInit {
-
   constructor(
     private _martyrService: MartyrService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
-    private _dialog: MatDialog
-  ) { }
+    private _dialog: MatDialog,
+    private _authService: AuthService
+  ) {}
 
   martyrs: Array<Martyr>;
+  userInstitutionID: number;
 
   async ngOnInit() {
+    this.userInstitutionID = this._authService.currentUserValue.result.InstitutionID;
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
   async martyrDelete(MartyrID) {
-    console.log(MartyrID)
+    console.log(MartyrID);
     let notification: any = {
       message: '',
       panelClass: 'notification__success',
@@ -86,5 +87,4 @@ export class MartyrListComponent implements OnInit {
       }
     });
   }
-
 }
