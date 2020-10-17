@@ -17,13 +17,17 @@ import {
   AddMartyrComponent,
   MartyrListComponent,
   UserListComponent,
+  ContactComponent,
 } from './pages';
 
 const routes: Routes = [
   {
     path: '',
     component: ClientLayoutComponent,
-    children: [{ path: '', component: HomepageComponent }],
+    children: [
+      { path: '', component: HomepageComponent },
+      { path: 'contact', component: ContactComponent }
+    ],
   },
   {
     path: 'admin',
