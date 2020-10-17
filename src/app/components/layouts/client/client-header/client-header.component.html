@@ -13,13 +13,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active text-light">{{ 'Home' | translate }}</a>
+                    <a [routerLink]="['/']" class="nav-link text-light">{{ 'Home' | translate }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light">{{ 'About' | translate }} </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light">{{ 'Contact' | translate }}</a>
+                    <a [routerLink]="['/contact']" class="nav-link text-light">{{ 'Contact' | translate }}</a>
                 </li>
             </ul>
         </div>
