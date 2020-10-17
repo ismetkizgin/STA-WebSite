@@ -35,6 +35,10 @@
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
+                            <a mat-menu-item (click)="examineOpenDialog()">
+                                <mat-icon>image</mat-icon>
+                                <span>{{ 'Image Update' | translate }}</span>
+                            </a>
                             <a mat-menu-item (click)="martyrDelete(martyr.MartyrID)">
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>

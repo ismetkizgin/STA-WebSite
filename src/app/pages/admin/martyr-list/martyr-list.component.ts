@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import {
   DialogWindowComponent,
+  MartyrImageDialogComponent
 } from '../../../components/';
 @Component({
   selector: 'app-martyr-list',
@@ -23,6 +24,11 @@ export class MartyrListComponent implements OnInit {
 
   martyrs: Array<Martyr>;
 
+  examineOpenDialog(){
+    this._dialog.open(MartyrImageDialogComponent,{
+      width:"300px",
+    });
+  }
   async ngOnInit() {
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
