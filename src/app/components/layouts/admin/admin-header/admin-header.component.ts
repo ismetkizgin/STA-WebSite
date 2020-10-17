@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ChangePasswordModalComponent } from 'src/app/components/change-password-modal/change-password-modal.component';
 import { LanguageService, AuthService } from '../../../../utils';
 
 @Component({
@@ -9,8 +11,15 @@ import { LanguageService, AuthService } from '../../../../utils';
 export class AdminHeaderComponent implements OnInit {
   constructor(
     private _languageService: LanguageService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _dialog:MatDialog
   ) {}
+
+  examineOpenDialog() {
+    this._dialog.open(ChangePasswordModalComponent, {
+      width: '400px',
+    });
+  }
 
   userInformation = this._authService.currentUserValue.result;
   lang: string =
