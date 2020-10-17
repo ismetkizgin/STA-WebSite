@@ -30,7 +30,7 @@ const routes: Routes = [
         component: HomepageComponent
       },
       {
-        path: 'martyr/info',
+        path: 'martyr/:MartyrID',
         component: MartyrInfoComponent,
         data: {
           title: 'Martyr Information',

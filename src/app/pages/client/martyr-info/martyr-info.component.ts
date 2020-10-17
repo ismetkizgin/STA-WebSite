@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { MartyrService } from 'src/app/utils';
 import { Martyr } from './martyr-info.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-martyr-info',
   templateUrl: './martyr-info.component.html',
-  styleUrls: ['./martyr-info.component.scss']
+  styleUrls: ['./martyr-info.component.scss'],
 })
 export class MartyrInfoComponent implements OnInit {
+  constructor(
+    private _martyrService: MartyrService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 
-  constructor(private _martyrService: MartyrService) { }
-  data: any;
-  martyr: Martyr = {
-    MartyrFirstName: "Furkan",
-    MartyrLastName: "Söğüt",
-    MartyrDateOfBirth: "10.02.1990",
-    MartyrDateOfDeath: "20.09.2020",
-    RankName: "Uzman Çavuş",
-    MartyrCity: "Gaziantep",
-    MartyrDistrict: "Şahinbey",
-    MartyrPlaceOfDeath: "Yüksekova/Hakkari",
-    MartyrContent: "Yazılım mühendisi bölüm mezunu",
-    MartyrImagePath: "https://upload.wikimedia.org/wikipedia/tr/9/9b/%C3%96mer_Halisdemir.png",
-    RankAbbreviation: "Uzmn."
-  };
+  martyr: Martyr;
   async ngOnInit() {
-    //this.martyr = <Martyr>(await this._martyrService.findAsync(this.data.InstitutionID));
+    const MartyrID = this._activatedRoute.snapshot.paramMap.get('MartyrID');
+    try {
+      this.martyr = <Martyr>await this._martyrService.findAsync(MartyrID);
+    } catch (error) {
+      console.log(error);
+      this._router.navigateByUrl('/');
+    }
   }
-
 }
