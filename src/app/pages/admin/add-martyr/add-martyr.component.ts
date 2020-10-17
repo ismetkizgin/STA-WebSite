@@ -128,7 +128,7 @@ export class AddMartyrComponent implements OnInit {
       );
       formData.set(
         'MartyrDateOfBirth',
-        martyrRegistrationForm.value.MartyrDateOfBrith
+        martyrRegistrationForm.value.MartyrDateOfBirth
       );
       formData.set(
         'MartyrDateOfDeath',

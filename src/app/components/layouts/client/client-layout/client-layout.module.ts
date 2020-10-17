@@ -6,11 +6,16 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ClientBannerComponent } from '../client-banner/client-banner.component';
-import { ClientHeaderComponent } from '../client-header/client-header.component';
 import { ClientFooterComponent } from '../client-footer/client-footer.component';
-import { 
+import { ClientHeaderComponent } from '../client-header/client-header.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgSearchFilterModule } from 'ng-search-filter';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import {
   HomepageComponent,
-  MartyrInfoComponent
+  MartyrInfoComponent,
 } from '../../../../pages/client';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -24,11 +29,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     MartyrInfoComponent,
     ClientBannerComponent,
     ClientHeaderComponent,
-    ClientFooterComponent
+    ClientFooterComponent,
+    HomepageComponent,
   ],
   imports: [
+    MatInputModule,
+    MatFormFieldModule,
+    NgSearchFilterModule,
     CommonModule,
     RouterModule,
+    MatIconModule,
+    FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -40,4 +51,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class ClientLayoutModule { }
+export class ClientLayoutModule {}
