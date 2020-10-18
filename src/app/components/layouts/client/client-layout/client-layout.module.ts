@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {
   HomepageComponent,
   MartyrInfoComponent,
+  ContactComponent
 } from '../../../../pages/client';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClientBannerComponent,
     ClientHeaderComponent,
     ClientFooterComponent,
-    HomepageComponent,
+    ContactComponent
   ],
   imports: [
     MatInputModule,

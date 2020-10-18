@@ -17,6 +17,7 @@ import {
   AddMartyrComponent,
   MartyrListComponent,
   UserListComponent,
+  ContactComponent,
   MartyrInfoComponent
 } from './pages';
 
@@ -25,6 +26,8 @@ const routes: Routes = [
     path: '',
     component: ClientLayoutComponent,
     children: [
+      { path: '', component: HomepageComponent },
+      { path: 'contact', component: ContactComponent },
       {
         path: '',
         component: HomepageComponent
