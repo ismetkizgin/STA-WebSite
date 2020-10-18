@@ -13,7 +13,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { HomepageComponent } from '../../../../pages/client';
+import {
+  HomepageComponent,
+  MartyrInfoComponent,
+} from '../../../../pages/client';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -22,6 +25,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     ClientLayoutComponent,
+    HomepageComponent,
+    MartyrInfoComponent,
     ClientBannerComponent,
     ClientHeaderComponent,
     ClientFooterComponent,

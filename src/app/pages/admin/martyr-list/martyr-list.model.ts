@@ -7,4 +7,5 @@ export class Martyr {
   MartyrImagePath: string;
   RankName: string;
   InstitutionName: string;
+  InstitutionID: number;
 }

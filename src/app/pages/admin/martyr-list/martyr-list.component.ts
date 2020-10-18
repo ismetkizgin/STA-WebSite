@@ -1,33 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { MartyrService } from '../../../utils/services';
+import { MartyrService, AuthService } from '../../../utils/services';
 import { TranslateService } from '@ngx-translate/core';
 import { Martyr } from './martyr-list.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { Roles } from '../../../models/roles';
 import {
   DialogWindowComponent,
+  MartyrImageDialogComponent,
 } from '../../../components/';
 @Component({
   selector: 'app-martyr-list',
   templateUrl: './martyr-list.component.html',
-  styleUrls: ['./martyr-list.component.scss']
+  styleUrls: ['./martyr-list.component.scss'],
 })
 export class MartyrListComponent implements OnInit {
-
   constructor(
     private _martyrService: MartyrService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
-    private _dialog: MatDialog
-  ) { }
+    private _dialog: MatDialog,
+    private _authService: AuthService
+  ) {}
 
   martyrs: Array<Martyr>;
+
+  pictureChangeOpenDialog(MartyrImagePath, MartyrID) {
+    this._dialog.open(MartyrImageDialogComponent, {
+      width: '300px',
+      data: {
+        MartyrImagePath,
+        MartyrID,
+      },
+    });
+  }
 
   async ngOnInit() {
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
+
   async martyrDelete(MartyrID) {
-    console.log(MartyrID)
+    console.log(MartyrID);
     let notification: any = {
       message: '',
       panelClass: 'notification__success',
@@ -87,4 +100,17 @@ export class MartyrListComponent implements OnInit {
     });
   }
 
+  roleControl(InstitutionID): boolean {
+    console.log(InstitutionID);
+    if (
+      this._authService.currentUserValue.result.InstitutionID ==
+        InstitutionID ||
+      [Roles.Root, Roles.Administrator].indexOf(
+        this._authService.currentUserValue.result.UserStatusName
+      ) != -1
+    )
+      return false;
+
+    return true;
+  }
 }

@@ -26,12 +26,7 @@ export class MartyrService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync(
-      'GET',
-      'martyr',
-      null,
-      true
-    );
+    return await this._apiFetchService.requestAsync('GET', 'martyr');
   }
   async deleteAsync(values) {
     return await this._apiFetchService.requestAsync(
@@ -45,8 +40,15 @@ export class MartyrService {
   async findAsync(martyrID) {
     return await this._apiFetchService.requestAsync(
       'GET',
-      `martyr/${martyrID}`,
-      null,
+      `martyr/${martyrID}`
+    );
+  }
+
+  async pictureChange(value, martyrID) {
+    return await this._apiFetchService.requestAsync(
+      'PUT',
+      `martyr/image/${martyrID}`,
+      value,
       true
     );
   }

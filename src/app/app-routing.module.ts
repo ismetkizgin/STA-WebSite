@@ -17,13 +17,27 @@ import {
   AddMartyrComponent,
   MartyrListComponent,
   UserListComponent,
+  MartyrInfoComponent
 } from './pages';
 
 const routes: Routes = [
   {
     path: '',
     component: ClientLayoutComponent,
-    children: [{ path: '', component: HomepageComponent }],
+    children: [
+      {
+        path: '',
+        component: HomepageComponent
+      },
+      {
+        path: 'martyr/:MartyrID',
+        component: MartyrInfoComponent,
+        data: {
+          title: 'Martyr Information',
+          icon: 'fa fa-2x fa-user-plus',
+        },
+      },
+    ],
   },
   {
     path: 'admin',
