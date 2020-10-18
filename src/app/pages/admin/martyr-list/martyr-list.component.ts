@@ -35,10 +35,11 @@ export class MartyrListComponent implements OnInit {
       },
     });
   }
-  qrCodeOpenDialog(){
-    this._dialog.open(QrCodeDialogComponent,{
-      
-      width:"400px",
+
+  qrCodeOpenDialog(values) {
+    this._dialog.open(QrCodeDialogComponent, {
+      width: '400px',
+      data: values,
     });
   }
 

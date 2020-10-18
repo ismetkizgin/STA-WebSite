@@ -9,9 +9,9 @@
 
 <mat-dialog-content class="mat-typography institution-dialog__content">
     <div class="d-flex justify-content-center">
-        <qrcode #parent [qrdata]="qrdata" [size]="256" [level]="'M'"></qrcode>
+        <qrcode [qrdata]="qrdata" [size]="256" [level]="'L'"></qrcode>
     </div>
     <br>
-    <button type="submit" (click)="saveAsImage(parent)"
+    <button type="submit" (click)="saveAsImage()"
         class="btn btn-info w-100">{{ 'Download Qr Code Image' | translate}}</button>
 </mat-dialog-content>
