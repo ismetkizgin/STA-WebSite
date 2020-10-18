@@ -24,6 +24,7 @@ import {
   InstitutionInfoDialogComponent,
   UserInfoDialogComponent,
   DialogWindowComponent,
+  ChangePasswordModalComponent,
   MartyrImageDialogComponent
 } from '../../';
 import {
@@ -59,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MartyrListComponent,
     UserListComponent,
     DialogWindowComponent,
+    ChangePasswordModalComponent,
     InstitutionInfoDialogComponent,
     UserInfoDialogComponent,
   ],
