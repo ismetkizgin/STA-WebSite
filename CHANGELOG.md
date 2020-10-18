@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0 (2020-10-18)
+
+
+### Features
+
+* qr code window component added ([7b7c60c](https://github.com/ismetkizgin/STA-WebSite/commit/7b7c60c72698079f6458296c989a29613c1c0a81))
+* martyr image editing page has been added ([858d568](https://github.com/ismetkizgin/STA-WebSite/commit/858d568a354abba49f5724df76584533e98ba33e))
+* password change page added ([a511959](https://github.com/ismetkizgin/STA-WebSite/commit/a5119599eb73fa092588a30748bc1e892e4e2305))
+* martyr information page design ([272a8f9](https://github.com/ismetkizgin/STA-WebSite/commit/272a8f9bb20184bd67797c7b39222bdbdf58b765))
+* added client contact page component ([a50a0e2](https://github.com/ismetkizgin/STA-WebSite/commit/a50a0e2d8cc84b3e78596e2e0e23570efd70c8bb))
+* footer design added and refactor navbar color ([716a513](https://github.com/ismetkizgin/STA-WebSite/commit/716a5132cdff636f0138963b32125de1352eed30))
+
+### Bug Fixes
+
+* martyr detail page content display error fixed ([5484894](https://github.com/ismetkizgin/STA-WebSite/commit/5484894ab95e3cca3638768e84c60f8d428022fe))
+* martyr operations menu role filter adjusted ([5ba6ec7](https://github.com/ismetkizgin/STA-WebSite/commit/5ba6ec7ea55235b79df2faf8def50ef98ba19dd8))
+* fixed issue of extracting data for martyr list and detail page ([f5e0d07](https://github.com/ismetkizgin/STA-WebSite/commit/f5e0d0736e1ff48a18da87a3598df6f9834fb5bd))
+* navbar-reworked ([36f0468](https://github.com/ismetkizgin/STA-WebSite/commit/36f0468fa8e7cb0901e79b358fdd6348ae3b7ef7))
+
+
 ## 1.4.0 (2020-10-16)
 
 
