@@ -61,21 +61,12 @@ export class AddUserComponent implements OnInit {
     this.institutions = <Array<object>>(
       await this._institutionService.listAsync()
     );
-    console.log(this.institutions);
-    console.log('deneme');
     if (UserID != null) {
       try {
         this._model = <any>await this._userService.findAsync(UserID);
       } catch (error) {
-        console.log(error);
-        switch (error.status) {
-          case 404:
-            this._router.navigateByUrl('admin');
-            break;
-          default:
-            this._router.navigateByUrl('admin');
-            break;
-        }
+        this.errorNotification(error);
+        this._router.navigateByUrl('admin');
       }
       this._action = this.updateActionAsync;
     } else {
@@ -165,6 +156,11 @@ export class AddUserComponent implements OnInit {
           .get('Please enter correct user information !')
           .subscribe((value) => (errorMessage = value));
         break;
+      case 404:
+        this._translateService
+          .get('Such a user is not registered in the system !')
+          .subscribe((value) => (errorMessage = value));
+        break;
       default:
         this._translateService
           .get(
@@ -174,7 +170,7 @@ export class AddUserComponent implements OnInit {
         break;
     }
     this._snackBar.open(errorMessage, 'X', {
-      duration: 3000,
+      duration: 4000,
       panelClass: 'notification__error',
       verticalPosition: 'bottom',
       horizontalPosition: 'right',

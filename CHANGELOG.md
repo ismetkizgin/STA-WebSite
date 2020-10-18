@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.4.0 (2020-10-16)
+
+
+### Features
+
+* added martyr page service link ([b1362de](https://github.com/ismetkizgin/STA-WebSite/commit/b1362de3250d33701fa1ddf50cc4e6ed1d79bd71))
+* added martyr list and delete transection for martyr list page ([6615818](https://github.com/ismetkizgin/STA-WebSite/commit/6615818000d412e4bb81d439be7e9e148351ffc0))
+* added client header and banner components ([75cac33](https://github.com/ismetkizgin/STA-WebSite/commit/75cac33ca4205c6c52fbec96caee17475e95664d))
+* adding language selection and user information dropdown to the title ([dac3711](https://github.com/ismetkizgin/STA-WebSite/commit/dac3711403ed341aa91b17032b7c4734c93ec424))
+
+
+## 1.3.0 (2020-10-07)
+
+
+### Features
+
+* added search bar in user and institution list page ([9938605](https://github.com/ismetkizgin/STA-WebSite/commit/99386055131cfffe3009bc92b957aab995aa9a93))
+* added windows dialog component ([37fd0ce](https://github.com/ismetkizgin/STA-WebSite/commit/37fd0cee741149f278373820a23574739638953a))
+* service links of the user form have been created ([df42673](https://github.com/ismetkizgin/STA-WebSite/commit/df426734990f238da3588656007f9b36eb091205))
+
+
 ## 1.2.0 (2020-10-02)
 
 

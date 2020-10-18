@@ -1,0 +1,33 @@
+.navbar {
+  &__logo {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+  }
+
+  &__title {
+    display: none;
+    font-family: Monotype Corsiva;
+    word-spacing: 5px;
+  }
+
+  &__header {
+    background: #b40909;
+  }
+
+  @media only screen and (min-width: 480px) and (max-width: 900px) {
+    &__title {
+      display: inline;
+    }
+  }
+}
+
+.nav-link {
+  cursor: pointer;
+}
+.navbar-toggler{
+  background-color: rgb(180, 13, 13);
+}
+.fa-bars{
+  color: rgb(243, 239, 239);
+}

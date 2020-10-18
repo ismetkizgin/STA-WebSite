@@ -1,3 +1,16 @@
+<div class="row">
+    <div class="col-md-3 col-sm-12 ml-auto ">
+        <mat-form-field>
+            <mat-label>{{ 'Search' | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+    {{ searchText }}
+</div>
 <div class="card">
     <div class="card-body table-responsive p-0">
         <table class="table table-hover text-nowrap">
@@ -8,27 +21,35 @@
                     <th>{{ 'E-mail' | translate }}</th>
                     <th>{{ 'Phone' | translate }}</th>
                     <th>{{ 'City/District ' | translate }}</th>
-                    <th style="width: 5%;"></th>
+                    <th style="width: 1%;"></th>
                 </tr>
             </thead>
             <tbody>
 
-                <tr *ngFor="let Institution of data">
+                <tr *ngFor="let Institution of data | filter:searchText">
                     <td>{{ Institution.InstitutionID }}</td>
                     <td>{{ Institution.InstitutionName }}</td>
                     <td>{{ Institution.InstitutionEmail }}</td>
                     <td>{{ Institution.InstitutionPhone }}</td>
-                    <td>{{ Institution.InstitutionCity }}/{{Institution.InstitutionDistrict}}</td>
+                    <td>{{ Institution.InstitutionCity }} / {{Institution.InstitutionDistrict}}</td>
                     <td class="list-button text-right">
-                        <a (click)="examineOpenDialog(Institution.InstitutionID)"
-                            class="btn btn-primary btn-sm ml-1 text-light">
-                            <i class="fas fa-folder"></i> {{ 'Examine' | translate }}</a>
-                        <a class="btn btn-info btn-sm ml-1"
-                            [routerLink]="['/admin/institution/edit/',Institution.InstitutionID]">
-                            <i class="fas fa-pencil-alt"></i> {{ 'Edit' | translate }}</a>
-                        <a (click)="onInstitutionDelete(Institution.InstitutionID)"
-                            class="btn btn-danger btn-sm ml-1  text-light">
-                            <i class="fas fa-trash"></i> {{ 'Delete' | translate }}</a>
+                        <a mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="list-menu">more_vert</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item (click)="examineOpenDialog(Institution.InstitutionID)">
+                                <mat-icon>remove_red_eye</mat-icon>
+                                <span>{{ 'Examine' | translate }}</span>
+                            </a>
+                            <a mat-menu-item [routerLink]="['/admin/institution/edit/',Institution.InstitutionID]">
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item (click)="onInstitutionDelete(Institution.InstitutionID)">
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
                     </td>
                 </tr>
 

@@ -34,20 +34,13 @@ export class AddInstitutionComponent implements OnInit {
     );
     if (InstitutionID != null) {
       try {
-        this._model = (<any>(
+        this._model = <any>(
           await this._institutionService.findAsync(InstitutionID)
-        ));
+        );
         this.getDistricts(this._model.InstitutionCity);
       } catch (error) {
-        console.log(error);
-        switch (error.status) {
-          case 404:
-            this._router.navigateByUrl('admin');
-            break;
-          default:
-            this._router.navigateByUrl('admin');
-            break;
-        }
+        this.errorNotification(error);
+        this._router.navigateByUrl('admin');
       }
       this._action = this.updateActionAsync;
     } else {
@@ -137,6 +130,11 @@ export class AddInstitutionComponent implements OnInit {
           .get('Please enter correct institution information !')
           .subscribe((value) => (errorMessage = value));
         break;
+      case 404:
+        this._translateService
+          .get('Such a institution is not registered in the system !')
+          .subscribe((value) => (errorMessage = value));
+        break;
       default:
         this._translateService
           .get(
@@ -146,7 +144,7 @@ export class AddInstitutionComponent implements OnInit {
         break;
     }
     this._snackBar.open(errorMessage, 'X', {
-      duration: 3000,
+      duration: 4000,
       panelClass: 'notification__error',
       verticalPosition: 'bottom',
       horizontalPosition: 'right',

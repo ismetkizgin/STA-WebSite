@@ -1,16 +1,13 @@
-<mat-dialog-content class="mat-typography">
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-10">
-                    <h1 class="m-0 text-dark">{{ 'User information' | translate}}</h1>
-                </div>
-                <div class="col-2 text-right text-muted">
-                    <i class="fa fa-2x fa-user"></i>
-                </div>
-            </div>
-        </div>
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="modal-header">
+        <h2>{{ 'User Information' | translate}}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
     </div>
+</div>
+
+<mat-dialog-content class="mat-typography institution-dialog__content">
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="card card-outline card-info">

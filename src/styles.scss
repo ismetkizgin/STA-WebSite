@@ -21,15 +21,11 @@ $my-app-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$my-app-theme: mat-light-theme(
-  (
-    color: (
-      primary: $my-app-primary,
+$my-app-theme: mat-light-theme((color: (primary: $my-app-primary,
       accent: $my-app-accent,
       warn: $my-app-warn,
     ),
-  )
-);
+  ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -67,6 +63,13 @@ $my-app-theme: mat-light-theme(
 .mat-form-field {
   width: 100%;
 }
-.mat-form-field {
-  width: 100%;
+
+.list-menu {
+  background-color: rgb(140, 140, 140, 0.2);
+  border-radius: 4em;
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+  }
 }

@@ -4,8 +4,10 @@ import { Institution } from './institution-list.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { InstitutionInfoDialogComponent } from '../../../components';
-import { MartyrInfoDialogComponent } from 'src/app/components/martyr-info-dialog/martyr-info-dialog.component';
+import {
+  InstitutionInfoDialogComponent,
+  DialogWindowComponent,
+} from '../../../components';
 
 @Component({
   selector: 'app-institution-list',
@@ -21,6 +23,7 @@ export class InstitutionListComponent implements OnInit {
   ) {}
 
   data: Institution[];
+  searchText: string;
 
   async ngOnInit() {
     this.data = <Institution[]>await this._institutionService.listAsync();
@@ -30,49 +33,59 @@ export class InstitutionListComponent implements OnInit {
       message: '',
       panelClass: 'notification__success',
     };
-    try {
-      await this._institutionService.deleteAsync({ InstitutionID });
-      this.data.splice(
-        this.data.findIndex(
-          (institution) => institution.InstitutionID == InstitutionID
-        ),
-        1
-      );
-      this._translateService
-        .get('Institution information was successfully deleted')
-        .subscribe((value) => (notification.message = value));
-    } catch (error) {
-      notification.panelClass = 'notification__error';
-      switch (error.status) {
-        case 401:
+    const diologRef = this._dialog.open(DialogWindowComponent, {
+      data: {
+        message: 'Are you sure you want to delete the institution ?',
+        icon: 'fa fa-exclamation',
+      },
+    });
+    diologRef.afterClosed().subscribe(async (result: boolean) => {
+      if (result) {
+        try {
+          await this._institutionService.deleteAsync({ InstitutionID });
+          this.data.splice(
+            this.data.findIndex(
+              (institution) => institution.InstitutionID == InstitutionID
+            ),
+            1
+          );
           this._translateService
-            .get('Unauthorized transaction !')
+            .get('Institution information was successfully deleted')
             .subscribe((value) => (notification.message = value));
-          break;
-        case 417:
-          this._translateService
-            .get('Please enter correct institution information !')
-            .subscribe((value) => (notification.message = value));
-          break;
-        case 407:
-          window.location.reload();
-          break;
-        default:
-          this._translateService
-            .get(
-              'Server error occurred, please try again later If the error persists, we ask you to report this to the authorities'
-            )
-            .subscribe((value) => (notification.message = value));
-          break;
+        } catch (error) {
+          notification.panelClass = 'notification__error';
+          switch (error.status) {
+            case 401:
+              this._translateService
+                .get('Unauthorized transaction !')
+                .subscribe((value) => (notification.message = value));
+              break;
+            case 417:
+              this._translateService
+                .get('Please enter correct institution information !')
+                .subscribe((value) => (notification.message = value));
+              break;
+            case 407:
+              window.location.reload();
+              break;
+            default:
+              this._translateService
+                .get(
+                  'Server error occurred, please try again later If the error persists, we ask you to report this to the authorities'
+                )
+                .subscribe((value) => (notification.message = value));
+              break;
+          }
+        } finally {
+          this._snackBar.open(notification.message, 'X', {
+            duration: 3000,
+            panelClass: notification.panelClass,
+            verticalPosition: 'bottom',
+            horizontalPosition: 'right',
+          });
+        }
       }
-    } finally {
-      this._snackBar.open(notification.message, 'X', {
-        duration: 3000,
-        panelClass: notification.panelClass,
-        verticalPosition: 'bottom',
-        horizontalPosition: 'right',
-      });
-    }
+    });
   }
 
   examineOpenDialog(InstitutionID) {
