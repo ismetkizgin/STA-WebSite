@@ -31,7 +31,7 @@ export class ChangePasswordModalComponent implements OnInit {
       };
       if (changePasswordForm.valid) {
         this._translateService
-          .get('The user password has been updated.')
+          .get('The user password has been updated')
           .subscribe((value) => (notification.message = value));
         notification.panelClass = 'notification__success';
         await this._authService.changePassword(changePasswordForm.value);
