@@ -1,11 +1,11 @@
 export class Martyr {
-  MartyrID: string;
   MartyrFirstName: string;
   MartyrLastName: string;
   MartyrCity: string;
   MartyrDistrict: string;
+  MartyrDateOfBirth: string;
+  MartyrDateOfDeath: string;
   MartyrImagePath: string;
-  RankName: string;
-  InstitutionName: string;
-  InstitutionID: number;
+  RankAbbreviation: string;
+  MartyrPlaceOfDeath: string;
 }

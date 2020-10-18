@@ -24,6 +24,8 @@ import {
   InstitutionInfoDialogComponent,
   UserInfoDialogComponent,
   DialogWindowComponent,
+  ChangePasswordModalComponent,
+  MartyrImageDialogComponent
 } from '../../';
 import {
   DashboardComponent,
@@ -46,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLayoutComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
+    MartyrImageDialogComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
     DashboardComponent,
@@ -57,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MartyrListComponent,
     UserListComponent,
     DialogWindowComponent,
+    ChangePasswordModalComponent,
     InstitutionInfoDialogComponent,
     UserInfoDialogComponent,
   ],

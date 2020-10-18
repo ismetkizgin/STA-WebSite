@@ -18,6 +18,7 @@ import {
   MartyrListComponent,
   UserListComponent,
   ContactComponent,
+  MartyrInfoComponent
 } from './pages';
 
 const routes: Routes = [
@@ -26,7 +27,19 @@ const routes: Routes = [
     component: ClientLayoutComponent,
     children: [
       { path: '', component: HomepageComponent },
-      { path: 'contact', component: ContactComponent }
+      { path: 'contact', component: ContactComponent },
+      {
+        path: '',
+        component: HomepageComponent
+      },
+      {
+        path: 'martyr/:MartyrID',
+        component: MartyrInfoComponent,
+        data: {
+          title: 'Martyr Information',
+          icon: 'fa fa-2x fa-user-plus',
+        },
+      },
     ],
   },
   {

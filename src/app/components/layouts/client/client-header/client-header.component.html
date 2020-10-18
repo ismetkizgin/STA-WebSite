@@ -1,25 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar__header p-0 shadow">
     <div class="container">
         <a class="navbar-brand text-center">
-            <img class="navbar__logo" src="assets/img/LOGO.png">
+            <img class="navbar__logo ml-4" src="assets/img/LOGO.png">
         </a>
         <h1 class="text-light pt-2 text-center navbar__title">
             {{ 'In Memory Of Martyr TOLGA ARTUG' | translate }}
         </h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <a class="navbar-toggler fas fa-bars" type="button" data-toggle="collapse" href="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active text-light">{{ 'Home' | translate }}</a>
+                    <a [routerLink]="['/']" class="nav-link text-light">{{ 'Home' | translate }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light">{{ 'About' | translate }} </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light">{{ 'Contact' | translate }}</a>
+                    <a [routerLink]="['/contact']" class="nav-link text-light">{{ 'Contact' | translate }}</a>
                 </li>
             </ul>
         </div>
