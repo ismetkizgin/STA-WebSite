@@ -8,6 +8,7 @@ import { Roles } from '../../../models/roles';
 import {
   DialogWindowComponent,
   MartyrImageDialogComponent,
+  QrCodeDialogComponent,
 } from '../../../components/';
 @Component({
   selector: 'app-martyr-list',
@@ -35,12 +36,18 @@ export class MartyrListComponent implements OnInit {
     });
   }
 
+  qrCodeOpenDialog(values) {
+    this._dialog.open(QrCodeDialogComponent, {
+      width: '400px',
+      data: values,
+    });
+  }
+
   async ngOnInit() {
     this.martyrs = <Array<Martyr>>await this._martyrService.listAsync();
   }
 
   async martyrDelete(MartyrID) {
-    console.log(MartyrID);
     let notification: any = {
       message: '',
       panelClass: 'notification__success',
@@ -101,7 +108,6 @@ export class MartyrListComponent implements OnInit {
   }
 
   roleControl(InstitutionID): boolean {
-    console.log(InstitutionID);
     if (
       this._authService.currentUserValue.result.InstitutionID ==
         InstitutionID ||

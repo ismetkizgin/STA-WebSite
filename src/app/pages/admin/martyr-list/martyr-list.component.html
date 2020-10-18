@@ -23,23 +23,27 @@
                             <mat-icon class="list-menu">more_vert</mat-icon>
                         </a>
                         <mat-menu #menu="matMenu">
-                            <a mat-menu-item>
+                            <a [routerLink]="['/martyr/', martyr.MartyrID]" target="_blank" mat-menu-item>
                                 <mat-icon>remove_red_eye</mat-icon>
                                 <span>{{ 'Examine' | translate }}</span>
                             </a>
-                            <a mat-menu-item>
+                            <a mat-menu-item
+                                (click)="qrCodeOpenDialog({MartyrFirstName: martyr.MartyrFirstName, MartyrLastName: martyr.MartyrLastName, MartyrID: martyr.MartyrID})">
                                 <mat-icon>qr_code_2</mat-icon>
                                 <span>{{ 'QR Code' | translate }}</span>
                             </a>
-                            <a [disabled]="roleControl(martyr.InstitutionID)" mat-menu-item [routerLink]="['/admin/martyr/edit/',martyr.MartyrID]">
+                            <a [disabled]="roleControl(martyr.InstitutionID)" mat-menu-item
+                                [routerLink]="['/admin/martyr/edit/',martyr.MartyrID]">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
-                            <a [disabled]="roleControl(martyr.InstitutionID)" mat-menu-item (click)="pictureChangeOpenDialog(martyr.MartyrImagePath, martyr.MartyrID)">
+                            <a [disabled]="roleControl(martyr.InstitutionID)" mat-menu-item
+                                (click)="pictureChangeOpenDialog(martyr.MartyrImagePath, martyr.MartyrID)">
                                 <mat-icon>image</mat-icon>
                                 <span>{{ 'Image Update' | translate }}</span>
                             </a>
-                            <a [disabled]="roleControl(martyr.InstitutionID)" mat-menu-item (click)="martyrDelete(martyr.MartyrID)">
+                            <a [disabled]="roleControl(martyr.InstitutionID)" mat-menu-item
+                                (click)="martyrDelete(martyr.MartyrID)">
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>

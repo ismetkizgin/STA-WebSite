@@ -20,8 +20,10 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { QRCodeModule } from 'angularx-qrcode';
 import {
   InstitutionInfoDialogComponent,
+  QrCodeDialogComponent,
   UserInfoDialogComponent,
   DialogWindowComponent,
   ChangePasswordModalComponent,
@@ -46,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AdminLayoutComponent,
+    QrCodeDialogComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     MartyrImageDialogComponent,
@@ -66,6 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     CommonModule,
+    QRCodeModule,
     RouterModule,
     FormsModule,
     MatSnackBarModule,
