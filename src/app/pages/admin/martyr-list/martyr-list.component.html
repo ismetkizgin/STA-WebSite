@@ -27,7 +27,7 @@
                                 <mat-icon>remove_red_eye</mat-icon>
                                 <span>{{ 'Examine' | translate }}</span>
                             </a>
-                            <a mat-menu-item>
+                            <a mat-menu-item (click)="qrCodeOpenDialog()">
                                 <mat-icon>qr_code_2</mat-icon>
                                 <span>{{ 'QR Code' | translate }}</span>
                             </a>

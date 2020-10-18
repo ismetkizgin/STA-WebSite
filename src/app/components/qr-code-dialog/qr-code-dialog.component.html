@@ -1,0 +1,17 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="modal-header">
+        <h2>{{ 'Qr Code Image' | translate}}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <div class="d-flex justify-content-center">
+        <qrcode #parent [qrdata]="qrdata" [size]="256" [level]="'M'"></qrcode>
+    </div>
+    <br>
+    <button type="submit" (click)="saveAsImage(parent)"
+        class="btn btn-info w-100">{{ 'Download Qr Code Image' | translate}}</button>
+</mat-dialog-content>
