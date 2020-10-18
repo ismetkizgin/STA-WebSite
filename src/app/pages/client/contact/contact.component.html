@@ -1,8 +1,8 @@
 <div class="container container__margin container__padding">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col-md-7 col-sm-7">
             <h4><strong>{{ 'Contact Form' | translate }}</strong></h4>
-            <form action="">
+            <form>
                 <div class="form-group">
                     <mat-form-field appearance="outline">
                         <mat-label>{{ 'First Name' | translate }}</mat-label>
@@ -35,22 +35,11 @@
                     <mat-form-field appearance="outline">
                         <mat-label>{{ 'Message' | translate }}</mat-label>
                         <textarea matInput type="text" placeholder="{{'Enter Message'|translate}}" name="UserMessage"
-                            pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" required>
-                                </textarea>
+                            pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" required></textarea>
                     </mat-form-field>
                 </div>
             </form>
             <button type="submit" class="btn btn-danger">{{ 'Send' | translate }}</button>
-        </div>
-        <div class="col-md-5 col-sm-5">
-            <h4><strong>{{ 'Contact Information' | translate }}</strong></h4>
-            <p>
-                {{ 'Phone Number' | translate }}:
-                <span class="muted"> 0 (555) 55 55 </span><br>
-                {{ 'Email Address' | translate }}:
-                <span class="muted">info@sta.com</span>
-            </p>
-
         </div>
     </div>
 </div>
